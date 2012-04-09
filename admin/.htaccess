@@ -1,0 +1,4 @@
+#AuthName "Admin Access"
+#AuthType Basic
+#AuthUserFile /home/www/web310/html/blog/admin/.htpasswd
+#require valid-user

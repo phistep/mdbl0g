@@ -1,0 +1,5 @@
+posts/*
+admin/drafts/*
+admin/.htpasswd
+*.tmproj
+.DS_Store
