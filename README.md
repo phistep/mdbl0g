@@ -12,13 +12,18 @@ A simple file-based, markdown-driven blog engine *with* web interface.
 * opt-out prettified URLs
 
 ## to-do
-* styling, layout, front end
+* styling, layout, front end (HTML5!)
 * markdown live preview
 * alerts
 * different display types (search, page, post)
 * error handling
 * escaping
-* editing
+* changeable `posts/` location
+* better `PRETTY_URLS ? foo : bar` handling
+* page links
+* setup
+* tags?
+* youtube, vimeo, fancybox 'plugins' etc.
 
 ## License
 MIT licensed

@@ -1,6 +1,6 @@
 #AuthName "Admin Access"
 #AuthType Basic
-#AuthUserFile /home/www/web310/html/blog/admin/.htpasswd
+#AuthUserFile /~ps0ke/mdbl0g/mdbl0g/admin/.htpasswd
 #require valid-user
 
 RewriteEngine On

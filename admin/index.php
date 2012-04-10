@@ -19,16 +19,17 @@ if('GET' == $_SERVER['REQUEST_METHOD']){
 	}
 }
 if('POST' == $_SERVER['REQUEST_METHOD']){
-	if($_POST['type'] == "new"){
-		$date = date("Y-m-d_G-i");
-		$file = fopen("../posts/".$date.".md", 'w')
-			or die('error creating file');
-		fwrite($file, $_POST['title']."\n".$_POST['content']);
+	if($_POST['type'] == "new" || $_POST['type'] == "edit"){
+		if($_POST['type'] == "new")
+			$filename = "../posts/".date("Y-m-d_G-i").".md";
+		else
+			$filename = "../posts/".$_POST['id'].".md";
+			
+		// in case we don't have write access on the file
+		if (file_exists($filename))
+			unlink($filename);
+		file_put_contents($filename, $_POST['title']."\n".$_POST['content']);
 		echo "success!";
-		fclose($file);
-	}
-	if($_POST['type'] == "edit"){
-		echo "editing";
 	}
 }
 ?>

@@ -25,7 +25,7 @@ else
 	
 $files = array_slice($files, (($page - 1) * POSTS_PER_PAGE), POSTS_PER_PAGE);
 
-echo "Page: ".$page."/".$maxPages."<br>\nNumber of entries: ".$entryCount."<br><a href=\"".BASE_URL."admin/".(PRETTY_URLS ? "new/" : "?new")."\">new</a><br>\n\n";
+echo "<a href=\"".(PRETTY_URLS ? BASE_URL."/rss/" : BASE_URL."rss.php")."\">RSS</a><br>\nPage: ".$page."/".$maxPages."<br>\nNumber of entries: ".$entryCount."<br>\n<a href=\"".BASE_URL."admin/".(PRETTY_URLS ? "new/" : "?new")."\">new</a><br>\n\n";
 
 foreach($files as $filename){
 	$post = post_details("posts/".$filename);
