@@ -2,3 +2,8 @@
 #AuthType Basic
 #AuthUserFile /home/www/web310/html/blog/admin/.htpasswd
 #require valid-user
+
+RewriteEngine On
+RewriteBase /~ps0ke/mdbl0g/mdbl0g/admin
+RewriteRule ^new/?$ index.php?new [NC,L]
+RewriteRule ^(delete|edit)/(\d\d\d\d)/(\d\d)/(\d\d)/(\d\d)/(\d\d)/?.*/?$ index.php?$1=$2-$3-$4_$5-$6 [NC,L]

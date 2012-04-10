@@ -65,8 +65,8 @@ function search_posts($dir, $query){
 
 function to_url($string){
 	$string = strtolower($string);
-	$string = preg_replace('/[^(\x20-\x7F)]*/','', $string);
-	$string = preg_replace('/\W+/','-', $string);
+	$string = preg_replace('/\s+/','-', $string);
+	$string = preg_replace('/[^A-Za-z0-9\-]+/','', $string);
 	return $string;
 }
 ?>

@@ -1,6 +1,9 @@
 RewriteEngine On
 RewriteBase /~ps0ke/mdbl0g/mdbl0g/
+
 RewriteRule ^page/(\d+)/?$ index.php?s=$1 [NC,L]
 RewriteRule ^(\d\d\d\d)/(\d\d)/(\d\d)/(\d\d)/(\d\d)/?.*/?$ index.php?p=$1-$2-$3_$4-$5 [NC,L]
 RewriteRule ^search/(\d+)/(.*)/?$ index.php?q=$2&s=$1 [NC,L]
 RewriteRule ^search/([^/]*)/?$ index.php?q=$1 [NC,L]
+
+RewriteRule ^rss/?$ rss.php [NC,L]
