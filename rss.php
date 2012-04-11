@@ -1,4 +1,5 @@
 <?php
+if(!defined(BASE_PATH)) define('BASE_PATH', './');
 include('static/include.php');
 
 header("Content-type: application/rss+xml");
@@ -14,9 +15,9 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
 		<atom:link href="<?php echo PRETTY_URLS ? BASE_URL."/rss/" : BASE_URL."rss.php"; ?>" rel="self" type="application/rss+xml" />
 
 <?
-$files = list_posts('posts');
+$files = list_posts(BASE_PATH.'posts');
 foreach($files as $filename){
-	$post = post_details("posts/".$filename);
+	$post = post_details(BASE_PATH."posts/".$filename);
 	$html = to_html($post['content']);
 	
 	$date = $post['date'];

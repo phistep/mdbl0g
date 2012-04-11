@@ -1,5 +1,6 @@
 <!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head><body>
 <?php
+if(!defined(BASE_PATH)) define('BASE_PATH', './');
 include('static/include.php');
 
 if(preg_match('/^\d\d\d\d-\d\d-\d\d_\d\d-\d\d$/', $_GET['p'])){

@@ -69,4 +69,9 @@ function to_url($string){
 	$string = preg_replace('/[^A-Za-z0-9\-]+/','', $string);
 	return $string;
 }
+
+function alert($alert_message, $alert_type, $alert_return_url, $alert_delay = DEFAULT_ALERT_DELAY){
+	include(BASE_PATH.'/static/templates/alert.php');
+	exit();
+}
 ?>
