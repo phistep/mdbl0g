@@ -3,35 +3,35 @@ function list_posts($dir){
 	$files = array();
 	if ($handle = opendir($dir)) {
 	    while (false !== ($entry = readdir($handle))) {
-	        if (preg_match('/^\d\d\d\d-\d\d-\d\d_\d\d-\d\d\.md$/', $entry)) {
-				$i++;
-				$files[$i] = $entry;
-	        }
+	        if (preg_match('/^\d\d\d\d-\d\d-\d\d_\d\d-\d\d\.md$/', $entry))
+				$files[] = $entry;
 	    }
 	    closedir($handle);
 	}
 	else return 0;
+	sort($files);
 	return array_reverse($files);
 }
 
 function post_details($filename){
+	if(!file_exists($filename))
+		return false;
+		
 	$post = array();
 	
 	preg_match('/((\d\d\d\d)-(\d\d)-(\d\d)_(\d\d)-(\d\d))\.md$/', $filename, $matches);
 	
 	$post['id'] = $matches[1];
-	
-	$post['date'] = array();
-	$post['date']['year'] = $matches[2];
-	$post['date']['month'] = $matches[3];
-	$post['date']['day'] = $matches[4];
-	$post['date']['hour'] = $matches[5];
-	$post['date']['minute'] = $matches[6];
+
+	$post['timestamp'] = mktime($matches[5], $matches[6], 0, $matches[3], $matches[4], $matches[2]);
 	
 	$content = file($filename);
 	$post['title'] = trim($content[0], "\n");
 	
+	$post['prettyid'] = date('Y/m/d/H/i/', $post['timestamp']).to_url($post['title']);
+	
 	$trimmedcontent = array_slice($content, 1);
+	$post['content'] = '';
 	foreach($trimmedcontent as $line)
 		$post['content'] .= $line;
 
@@ -39,7 +39,12 @@ function post_details($filename){
 }
 
 function to_html($markdown){
+	foreach(glob(BASE_PATH."plugins/*/php_mdconverter-html.php") as $filename){include $filename;}
+	
 	$html = Markdown($markdown);
+	
+	foreach(glob(BASE_PATH."plugins/*/php_mdconverter-html.php") as $filename){include $filename;}
+
 	return $html;
 }
 
@@ -70,7 +75,7 @@ function to_url($string){
 	return $string;
 }
 
-function alert($alert_message, $alert_type, $alert_return_url, $alert_delay = DEFAULT_ALERT_DELAY){
+function alert($alert_message, $alert_type, $alert_return_url = BASE_URL, $alert_delay = DEFAULT_ALERT_DELAY){
 	include(BASE_PATH.'/static/templates/alert.php');
 	exit();
 }

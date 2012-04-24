@@ -1,7 +1,7 @@
-#AuthName "Admin Access"
-#AuthType Basic
-#AuthUserFile /~ps0ke/mdbl0g/mdbl0g/admin/.htpasswd
-#require valid-user
+AuthName "Admin Access"
+AuthType Basic
+AuthUserFile /Users/Ps0ke/Sites/mdbl0g/mdbl0g/admin/.htpasswd
+Require valid-user
 
 RewriteEngine On
 RewriteBase /~ps0ke/mdbl0g/mdbl0g/admin

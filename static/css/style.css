@@ -1,0 +1,159 @@
+/* --- General --- */
+@import url(http://fonts.googleapis.com/css?family=Average);
+body{
+	font-family: 'Average', serif;
+	word-wrap: break-word;
+}
+::selection{
+	background: black;
+	color: white;
+}
+::-moz-selection {
+	background: black;
+	color: white;
+}
+.wrapper{
+	margin:0 auto;
+	width:610px;
+	position:relative;
+}
+a{
+	border-bottom: 1px dotted gray;
+	text-decoration:none;
+	color:inherit;
+}
+a:hover{
+	text-decoration:none;
+	border-bottom: 1px solid gray;
+}
+a.fancybox{
+	border-bottom: none;
+}
+h1, h2, h3, h4, h5, h6 {
+	text-rendering: optimizeLegibility;
+}
+
+
+/* --- Infobox --- */
+.infobox{
+	position:fixed;
+	width:190px;
+	padding-left:10px;
+	margin-left:410px;
+	border-left: 1px dotted gray;
+}
+.infobox h1{
+	font-size:2.5em;
+}
+.infobox h1 a{
+	border-bottom:none;
+}
+.infobox h1 a:hover{
+	color:gray;
+}
+.infobox ul.info{
+	padding-left:0px;
+	list-style:none;
+}
+.infobox ul.info li{
+	padding:5px 0 5px 0;
+	color:gray;
+}
+
+
+/* --- Post --- */
+h1.post-title{
+	margin-bottom:0px;
+}
+.post-date,.post-admin,.generator{
+	color:gray;
+}
+.post-date,.post-admin{
+	font-size:0.8em;
+	display:inline;
+}
+ul.post-info{
+	padding:0;
+	margin-top:5px;
+}
+.content{
+	width:400px;
+	padding-right:10px;
+}
+.content article.post .post-content{
+	text-align:justify;
+	line-height:1.5em;
+}
+.content article.post .post-content img {
+	max-width: 100%;
+}
+
+
+/* --- Content --- */
+hr{
+	border:none;
+	border-bottom: 1px dotted gray;
+	margin: 50px 0px 50px 0px;
+}
+hr:last-child{
+	display:none;
+}
+.generator{
+	font-size: 0.8em;
+	position:fixed;
+	bottom:5px;
+}
+
+
+/* --- New/Edit --- */
+input[type=text], input[type=search], textarea {
+	font-family: 'Average', serif;
+	border: 1px dotted gray;
+	padding: 5px;
+	width:100%;
+}
+.content.newpost {
+	margin: 0;
+	padding: 0;
+	margin-top: 5px;
+}
+.content.newpost.input {
+	float: left;
+}
+.content.newpost.preview {
+	float: right;
+	border-left: 1px dotted gray;
+	padding: 10px;
+}
+.previewpane {
+	margin: 0;
+	padding: 0 10px 10px 0;
+	width: 100%;
+	height: 400px;
+	overflow: auto;
+}
+.newpost-wrapper{
+	margin:0 auto;
+	width:835px;
+}
+div.content.newpost.preview article.post h1.post-title{
+	margin-top:0;
+}
+
+
+/* --- Alerts --- */
+div.alert, form.alert{
+	margin: 0 auto;
+	margin:25px;
+	border:1px dotted;
+	text-align:center;
+	padding: 25px;
+}
+.alert.error{
+	border-color: rgba(255,0,0,1);
+	background: rgba(255,0,0,.1);
+}
+.alert.success{
+	border-color: rgba(0,255,0,1);
+	background: rgba(0,255,0,.1);
+}
