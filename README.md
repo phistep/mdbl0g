@@ -33,6 +33,7 @@ MIT licensed
 
 ## Powered by
 * The beautiful ['Average' typeface](http://www.google.com/webfonts/specimen/Average) by Eduardo Tunni (License: SIL Open Font License, 1.1) using Google's awesome [Web Fonts API](http://www.google.com/webfonts/)
-* [PHP Markdown 1.0.1o](https://github.com/michelf/php-markdown/) (License: BSD-style / GNU GPL 2)
+* [PHP Markdown 1.0.1o](https://github.com/michelf/php-markdown/) (License: BSD-style / GPL 2)
 * [showdown.js](https://github.com/coreyti/showdown) (License: BSD)
 * [PHP-like Javascript Date.format](http://jacwright.com/projects/javascript/date_format/) (License: MIT)
+* [FancyBox](http://fancybox.net/) (License: MIT and GPL)

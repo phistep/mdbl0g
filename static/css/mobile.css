@@ -63,8 +63,11 @@ ul.post-info{
 	text-align:justify;
 	line-height:1.5em;
 }
-.content article.post .post-content img {
+.content article.post .post-content img{
 	max-width: 100%;
+}
+.content article.post .post-content iframe{
+	width: 100% !important;
 }
 
 
