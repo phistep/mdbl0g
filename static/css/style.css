@@ -2,7 +2,6 @@
 @import url(http://fonts.googleapis.com/css?family=Average);
 body{
 	font-family: 'Average', serif;
-	word-wrap: break-word;
 }
 ::selection{
 	background: black;
@@ -79,6 +78,7 @@ ul.post-info{
 .content{
 	width:400px;
 	padding-right:10px;
+	word-wrap: break-word;
 }
 .content article.post .post-content{
 	text-align:justify;
