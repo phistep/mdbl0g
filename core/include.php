@@ -14,6 +14,7 @@ require_once('strings/'.$lang.'.php');
 
 
 define('POWERED_BY', 'mdbl0g');
+define('POWERED_BY_LINK', 'https://github.com/Ps0ke/mdbl0g/');
 
 define('POSTS_PER_PAGE', 5);
 define('PRETTY_URLS', true);

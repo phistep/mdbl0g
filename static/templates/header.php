@@ -36,6 +36,6 @@
 ?>
 			<li class="new-post"><a href="<?php echo $data['newPostLink']; ?>">New Post</a></li>
 		</ul>
-		<span class="generator">HTML5 valid | Powered by <?php echo POWERED_BY ?></span>
+		<span class="generator"><a href="http://validator.w3.org/check?uri=referer">HTML5 valid</a> | Powered by <a href="<?php echo POWERED_BY_LINK; ?>"><?php echo POWERED_BY; ?></a></span>
 	</aside>
 	<div class="content">
