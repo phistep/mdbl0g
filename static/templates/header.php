@@ -17,7 +17,7 @@
 		<span class="description"><?php echo BLOG_DESCRIPTION; ?></span>
 		<ul class="info">
 			<li><form method="get" action="<?php echo BASE_URL; ?>">
-				<input type="search" placeholder="Search..." name="q"<?php if($data['type'] == 'search') echo 'value="'.$_GET['q'].'"';?>>
+				<input type="search" placeholder="Search..." name="q"<?php if($data['type'] == 'search') echo ' value="'.$_GET['q'].'"';?>>
 			</form></li>
 <?php
 	if($data['type'] == 'search')
