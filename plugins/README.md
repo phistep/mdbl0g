@@ -13,6 +13,7 @@ The hook points are grouped in two sections: `html` and `php` and the the name o
 Creating a plugin is easy: Create a folder and put your code files in it. Each one named with the hook point it aims to hook and `.php` as suffix.
 
 ## List of available hook points
+* `php_main-post-before-include` - Hooks into the `index.php` before the `static/templates/post.php` gets included, so it enables you to modify the `$data[]` of the post before it gets rendered.
 * `php_mdconverter-md` - Hooks into the `static/functions/functions.php to_html()` function, before the conversion, `$markdown` is available for modification.
 * `php_mdconverter-html` - Hooks into the `static/functions/functions.php to_html()` function, after the conversion, `$html` is available for modification.
 

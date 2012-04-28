@@ -79,6 +79,9 @@ if($files)
 			$data['editLink'] = BASE_URL."admin/".(PRETTY_URLS ? "edit/".$post['prettyid'] : "?edit=".$post['id']);
 			$data['deleteLink'] = BASE_URL."admin/".(PRETTY_URLS ? "delete/".$post['prettyid'] : "?delete=".$post['id']);
 			$data['time'] = date(DATE_FORMAT, $post['timestamp']);
+			
+			foreach(glob(BASE_PATH."plugins/*/php_main-post-before-include.php") as $filename){include $filename;}
+			
 			include(BASE_PATH.'static/templates/post.php');
 		}
 	}
