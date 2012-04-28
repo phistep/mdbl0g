@@ -1,3 +1,6 @@
+# mdbl0g Plugins
+You can get plugins from the [mdbl0g Plugin GitHub repo](https://github.com/Ps0ke/mdbl0g-plugins)!
+
 # The mdbl0g Plugin API
 
 ## General
