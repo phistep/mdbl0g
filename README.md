@@ -16,7 +16,7 @@ A simple, file-based, markdown-driven blog engine *with* web interface.
 ## Customize with Plugins
 You can easily add features to your mdbl0g by installing plugins. Just download one and drop it into the `plugins/` directory. There are already some available at the [mdbl0g Plugin GitHub repo](https://github.com/Ps0ke/mdbl0g-plugins).
 
-If you want to develop your own plugins, have a look at the [Plugin API](plugins/README.md).
+If you want to develop your own plugins, have a look at the [Plugin API](mdbl0g/plugins/README.md).
 
 ## License
 MIT licensed
