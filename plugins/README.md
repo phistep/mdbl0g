@@ -15,9 +15,11 @@ Creating a plugin is easy: Create a folder and put your code files in it. Each o
 ### Security when using a `php_admin*` hook
 Since the `plugins/*/` directory has to be readable by public for many plugins to work correctly, your plugins using admin features could be called publicly, if the URL is known (and if the plugin is openly available it will not be too hard to figure that out). To prevent unwanted access to admin plugins you have to check wether the code is called from inside the `admin/index.php` or not. This can be easily achieved by wrapping all the functionality in a conditional statement like this one:
 ```php
-if(preg_match("/admin/", getcwd())){
-	// admin code here
-}
+    <?php
+        if(preg_match("/admin/", getcwd())){
+            // admin code here
+        }
+    ?>
 ```
 
 ## List of available hook points
