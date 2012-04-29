@@ -18,6 +18,9 @@ You can easily add features to your mdbl0g by installing plugins. Just download 
 
 If you want to develop your own plugins, have a look at the [Plugin API](https://github.com/Ps0ke/mdbl0g/blob/master/plugins/README.md).
 
+## Import
+Since the file format is very simple, you can easily export your existing blog to use the posts with mdbl0g. Here is a small script to [export from Wordpress](https://gist.github.com/2553348/).
+
 ## License
 MIT licensed
 
