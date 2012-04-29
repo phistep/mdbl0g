@@ -12,9 +12,21 @@ The hook points are grouped in two sections: `html` and `php` and the the name o
 ## Creating a plugin
 Creating a plugin is easy: Create a folder and put your code files in it. Each one named with the hook point it aims to hook and `.php` as suffix.
 
+### Security when using a `php_admin*` hook
+Since the `plugins/*/` directory has to be readable by public for many plugins to work correctly, your plugins using admin features could be called publicly, if the URL is known (and if the plugin is openly available it will not be too hard to figure that out). To prevent unwanted access to admin plugins you have to check wether the code is called from inside the `admin/index.php` or not. This can be easily achieved by wrapping all the functionality in a conditional statement like this one:
+```php
+if(preg_match("/admin/", getcwd())){
+	// admin code here
+}
+```
+
 ## List of available hook points
 * `php_main-post-before-include` - Hooks into the `index.php` before the `static/templates/post.php` gets included, so it enables you to modify the `$data[]` of the post before it gets rendered.
 * `php_mdconverter-md` - Hooks into the `static/functions/functions.php to_html()` function, before the conversion, `$markdown` is available for modification.
 * `php_mdconverter-html` - Hooks into the `static/functions/functions.php to_html()` function, after the conversion, `$html` is available for modification.
+* `php_admin-request-get` - Hooks into the `admin/index.php` in the `if('GET' == $_SERVER['REQUEST_METHOD'])` before all other `if`s. When using `php_admin*` hooks please read the section about security!
+* `php_admin-request-get` - Hooks into the `admin/index.php` in the `if('POST' == $_SERVER['REQUEST_METHOD'])` before all other `if`s. When using `php_admin*` hooks please read the section about security!
 
-* `html_head` - Hooks into the `<head>` element of `static/templates/header.php` after all other tags to load assets and overwrite previously loaded files.
+* `html_head-top` - Hooks into the very top of the `<head>` element in `static/templates/header.php` before all other tags. This enables you to load recourses e.g. frameworks that are taken advantage of by other plugins and thus have to be strictly included _before_ the all other resources.
+* `html_head` - Hooks into the `<head>` element in `static/templates/header.php` after all other tags to load assets and overwrite previously loaded files.
+* `html_post-bottom` - Hooks in at the end of the post element in `static/templates/post.php` to add html after the post.

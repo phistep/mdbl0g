@@ -3,6 +3,8 @@ if(!defined('BASE_PATH')) define('BASE_PATH', '../');
 include(BASE_PATH.'core/include.php');
 
 if('GET' == $_SERVER['REQUEST_METHOD']){
+	foreach(glob(BASE_PATH."plugins/*/php_admin-request-get.php") as $filename){include $filename;}
+	
 	if(isset($_GET['new'])){
 		$type = 'new';
 		require(BASE_PATH.'static/templates/new-edit.php');
@@ -26,6 +28,8 @@ if('GET' == $_SERVER['REQUEST_METHOD']){
 	}
 }
 if('POST' == $_SERVER['REQUEST_METHOD']){
+	foreach(glob(BASE_PATH."plugins/*/php_admin-request-post.php") as $filename){include $filename;}
+	
 	if($_POST['type'] == "new" || $_POST['type'] == "edit"){
 		if($_POST['type'] == "new"){
 			$filename = BASE_PATH."posts/".date("Y-m-d_H-i").".md";

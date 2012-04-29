@@ -8,6 +8,7 @@
 	<div class="post-content">
 <?php echo $data['contentHtml']; ?>
 	</div>
+	<?php foreach(glob(BASE_PATH."plugins/*/html_post-bottom.php") as $filename){include $filename;} ?>
 </article>
 
 <hr>

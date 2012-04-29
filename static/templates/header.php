@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<?php foreach(glob(BASE_PATH."plugins/*/html_head-top.php") as $filename){include $filename;} ?>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta name="generator" content="<?php echo POWERED_BY ?>">
 		<link rel="alternate" type="application/rss+xml" title="<?php echo BLOG_TITLE; ?> Feed" href="<?php echo $data['rssLink']; ?>">
