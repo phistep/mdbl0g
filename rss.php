@@ -13,7 +13,7 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
 		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
 		<generator><![CDATA[<?php echo POWERED_BY; ?>]]></generator>
 		<atom:link href="<?php echo PRETTY_URLS ? BASE_URL."/rss/" : BASE_URL."rss.php"; ?>" rel="self" type="application/rss+xml" />
-<?
+<?php
 $files = list_posts(BASE_PATH.'posts');
 foreach($files as $filename){
 	$post = post_details(BASE_PATH."posts/".$filename);
@@ -31,7 +31,7 @@ foreach($files as $filename){
 			<guid><?php echo $link; ?></guid>
 			<pubDate><?php echo $rfcdate; ?></pubDate>
 		</item>
-<?
+<?php
 }
 ?>
 
