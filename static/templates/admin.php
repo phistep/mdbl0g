@@ -1,28 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title><?php echo BLOG_TITLE; ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>static/css/style.css" media="all">
+	<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>static/css/style.css" media="all and (min-width: 840px)">
+	<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL ?>static/css/mobile.css" media="only screen and (max-width: 839px)">
+	<link href='http://fonts.googleapis.com/css?family=Average' rel='stylesheet' type='text/css'>
 	<title>Admin Interface <?php echo BLOG_TITLE; ?></title>
 </head>
 <body>
-	<h1><a href="<?php echo BASE_URL; ?>"><?php echo BLOG_TITLE; ?></a></h1>
-	<h2 class="description">Admin Interface</h2>
-	<hr class="thin">
+	<div class="wrapper">
+		<aside class="infobox">
+			<h1><a href="<?php echo BASE_URL; ?>"><?php echo BLOG_TITLE; ?></a></h1>
+			<span class="description">Admin Interface</span>
+			<ul class="info">
+				<li class="new-post"><a href="<?php echo BASE_URL; ?>">Back to main page</a></li>
+			</ul>
+			<span class="generator"><a href="http://validator.w3.org/check?uri=referer">HTML5 valid</a> | Powered by <a href="<?php echo POWERED_BY_LINK; ?>"><?php echo POWERED_BY; ?></a></span>
+		</aside>
+		<div class="content">
 	
-	<h3>New Post</h3>
-	<a href="<?php echo BASE_URL."admin/".(PRETTY_URLS ? "new/" : "?new") ?>">New Post</a>
-	<hr class="thin">
+			<h2>New Post</h2>
+			<a href="<?php echo BASE_URL."admin/".(PRETTY_URLS ? "new/" : "?new") ?>">Write a new post.</a>
+			<hr class="thin">
 
-<?php
-	foreach(glob(BASE_PATH."plugins/*/html_admin.php") as $filename){
-		preg_match("/.+\/(.+)\/html_admin.php/", $filename, $result);
-		echo '<h3>'.$result[1].' <small>(Plugin)</small></h3>';
-		include $filename;
-		echo '<hr class="thin">';
-	}
-?>
+			<h2>Installed Plugins</h2>
+			<ul>
+		<?php
+			foreach(glob(BASE_PATH."plugins/*", GLOB_ONLYDIR) as $filename){
+				preg_match("/.+\/(.+)$/", $filename, $result);
+				echo '<li>'.$result[1].'</li>';
+			}
+		?>
+			</ul>
+			<hr class="thin">
+	
+		<?php
+			foreach(glob(BASE_PATH."plugins/*/html_admin.php") as $filename){
+				preg_match("/.+\/(.+)\/html_admin.php$/", $filename, $result);
+				echo '<h2>'.$result[1].' <small>(Plugin)</small></h2>';
+				include $filename;
+				echo '<hr class="thin">';
+			}
+		?>
+		</div>
 </body>
 </html>
 

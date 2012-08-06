@@ -21,6 +21,8 @@ h1, h2, h3, h4, h5, h6 {
 /* --- Infobox --- */
 .infobox{
 	border-bottom: 1px dotted gray;
+	padding-bottom: 50px;
+	margin-bottom: 50px;
 }
 .infobox h1{
 	font-size:2.5em;
@@ -80,6 +82,12 @@ hr{
 hr:last-child{
 	display:none;
 }
+hr.thin{
+	margin: 20px 0px 10px 0px;
+}
+.generator{
+	font-size: 0.8em;
+}
 
 
 /* --- New/Edit --- */
@@ -87,7 +95,7 @@ input[type=text], input[type=search], textarea {
 	font-family: 'Average', serif;
 	border: 1px dotted gray;
 	padding: 5px;
-	width:100%;
+	width:98%;
 }
 .content.newpost {
 	margin: 0;
