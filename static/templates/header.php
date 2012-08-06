@@ -36,7 +36,7 @@
 		echo '</li>';
 	}
 ?>
-			<li class="new-post"><a href="<?php echo $data['newPostLink']; ?>">New Post</a></li>
+			<li class="new-post"><a href="<?php echo BASE_URL.'admin/'; ?>">Admin Interface</a></li>
 		</ul>
 		<span class="generator"><a href="http://validator.w3.org/check?uri=referer">HTML5 valid</a> | Powered by <a href="<?php echo POWERED_BY_LINK; ?>"><?php echo POWERED_BY; ?></a></span>
 	</aside>

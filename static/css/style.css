@@ -98,6 +98,9 @@ hr{
 hr:last-child{
 	display:none;
 }
+hr.thin{
+	margin: 20px 0px 10px 0px;
+}
 .generator{
 	font-size: 0.8em;
 	position:fixed;
