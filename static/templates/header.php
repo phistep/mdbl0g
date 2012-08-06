@@ -20,6 +20,7 @@
 			<li><form method="get" action="<?php echo BASE_URL; ?>">
 				<input type="search" placeholder="Search..." name="q"<?php if($data['type'] == 'search') echo ' value="'.$_GET['q'].'"';?>>
 			</form></li>
+			<li><a href="<?php echo $data['rssLink']; ?>">Subscribe via RSS</a></li>
 <?php
 	if($data['type'] == 'search')
 		echo '<li class="result">Search Results: <span class="result-count">'.$data['entryCount'].'</span></li>';
