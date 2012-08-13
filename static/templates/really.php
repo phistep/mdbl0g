@@ -8,9 +8,9 @@
 </head>
 <body>
 	<form class="alert error" action="<?php echo BASE_URL."admin/";?>" method="get">
-	Do you really want to delete that post? 
+	<?php echo $STR["alert_delete_really"]; ?>
 	<input type="hidden" name="delete" value="<?php echo $_GET['delete'];?>">
-	<input type="submit" name="really" class="alert error" value="Delete">
+	<input type="submit" name="really" class="alert error" value="<?php echo $STR["post_label_delete"]; ?>">
 </form>
 </body>
 </html>

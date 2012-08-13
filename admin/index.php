@@ -17,10 +17,10 @@ if('GET' == $_SERVER['REQUEST_METHOD']){
 	else if(preg_match('/^\d\d\d\d-\d\d-\d\d_\d\d-\d\d$/', $_GET['delete'])){
 		if(isset($_GET['really'])){
 			if(unlink(BASE_PATH."posts/".$_GET['delete'].".md"))
-				alert("deleted successfully", "success");
+				alert($STR["alert_delete_success"], "success");
 			else{
 				$post = post_details(BASE_PATH."posts/".$_GET['delete'].".md");
-				alert("error - could not delete", "error", BASE_URL.(PRETTY_URLS ? $post['prettyid'] : "?p=".$post['id']));
+				alert($STR["alert_delete_error"], "error", BASE_URL.(PRETTY_URLS ? $post['prettyid'] : "?p=".$post['id']));
 			}
 		}
 		else
@@ -36,13 +36,13 @@ if('POST' == $_SERVER['REQUEST_METHOD']){
 	if($_POST['type'] == "new" || $_POST['type'] == "edit"){
 		if($_POST['type'] == "new"){
 			$filename = BASE_PATH."posts/".date("Y-m-d_H-i").".md";
-			$successmessage = "created successfully";
-			$errormessage = "error - could not create";
+			$successmessage = $STR["alert_new_success"];
+			$errormessage = $STR["alert_new_error"];
 		}
 		else{ // edit
 			$filename = BASE_PATH."posts/".$_POST['id'].".md";
-			$successmessage = "edited successfully";
-			$errormessage = "error - could not update";
+			$successmessage = $STR["alert_edit_success"];
+			$errormessage = $STR["alert_edit_error"];
 		}
 		
 		if(!($_POST['title'] && $_POST['content'])){
@@ -50,7 +50,7 @@ if('POST' == $_SERVER['REQUEST_METHOD']){
 				$returnurl = BASE_URL."admin/".(PRETTY_URLS ? "new/" : "?new");
 			else
 				$returnurl = BASE_URL."admin/?edit=".$_POST['id'];
-			alert("Fill out all filds!", "error", $returnurl);
+			alert($STR["alert_new_error_fields"], "error", $returnurl);
 		}
 		
 		 // in case we don't have write access on the file

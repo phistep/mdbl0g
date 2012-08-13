@@ -13,19 +13,18 @@
 	<div class="wrapper">
 		<aside class="infobox">
 			<h1><a href="<?php echo BASE_URL; ?>"><?php echo BLOG_TITLE; ?></a></h1>
-			<span class="description">Admin Interface</span>
+			<span class="description"><?php echo $STR["admin_link"]; ?></span>
 			<ul class="info">
-				<li class="new-post"><a href="<?php echo BASE_URL; ?>">Back to main page</a></li>
+				<li class="new-post"><a href="<?php echo BASE_URL; ?>"><?php echo $STR["admin_back"]; ?></a></li>
 			</ul>
 			<span class="generator"><a href="http://validator.w3.org/check?uri=referer">HTML5 valid</a> | Powered by <a href="<?php echo POWERED_BY_LINK; ?>"><?php echo POWERED_BY; ?></a></span>
 		</aside>
 		<div class="content">
-	
-			<h2>New Post</h2>
-			<a href="<?php echo BASE_URL."admin/".(PRETTY_URLS ? "new/" : "?new") ?>">Write a new post.</a>
+			<h2><?php echo $STR["admin_new_headline"]; ?></h2>
+			<a href="<?php echo BASE_URL."admin/".(PRETTY_URLS ? "new/" : "?new") ?>"><?php echo $STR["admin_new_desc"]; ?></a>
 			<hr class="thin">
 
-			<h2>Installed Plugins</h2>
+			<h2><?php echo $STR["admin_plugins"]; ?></h2>
 			<ul>
 		<?php
 			foreach(glob(BASE_PATH."plugins/*", GLOB_ONLYDIR) as $filename){

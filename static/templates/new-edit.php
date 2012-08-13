@@ -15,12 +15,12 @@
 <div class="newpost-wrapper">
 	<div class="content newpost input">
 		<form method="post">
-				Title:<br><input type="text" name="title" size="50" onKeyUp="document.getElementById('preview-title').innerHTML = this.value;"<?php if($type == 'edit') echo ' value="'.$post['title'].'"';?>><br><br>
-				Content:<br>
+				<?php echo $STR["post_title"]; ?><br><input type="text" name="title" size="50" onKeyUp="document.getElementById('preview-title').innerHTML = this.value;"<?php if($type == 'edit') echo ' value="'.$post['title'].'"';?>><br><br>
+				<?php echo $STR["post_content"]; ?><br>
 				<textarea name="content" id="inputPane" rows="20" cols="60"><?php if($type == 'edit') echo $post['content'];?></textarea><br><br>
 				<?php if($type == 'edit') echo '<input type="hidden" name="id" value="'.$post['id'].'">'; ?>
 				<input type="hidden" name="type" value="<?php echo $type; ?>">
-				<input type="submit" name="action" value="Submit" class="button">
+				<input type="submit" name="action" value="<?php echo $STR["post_submit"]; ?>" class="button">
 		</form>
 	</div>
 
@@ -28,10 +28,10 @@
 		<article class="post">
 			<h1 class="post-title"><a href="#" id="preview-title"><?php if($type == 'edit') echo $post['title'];?></a></h1>
 			<ul class="post-info">
-				<li class="post-date">Posted: <span><script type="text/javascript">var now = new Date();document.write(now.format('<?php echo DATE_FORMAT; ?>'));</script></span></li>
+				<li class="post-date"><?php echo $STR["post_label_posted"]; ?> <span><script type="text/javascript">var now = new Date();document.write(now.format('<?php echo DATE_FORMAT; ?>'));</script></span></li>
 			</ul>
 			<div class="post-content">
-				<div id="previewPane" class="previewpane"><noscript><h2>You need to enable Javascript to enable Markdown Live Preview.</h2></noscript></div>
+				<div id="previewPane" class="previewpane"><noscript><h2><?php echo $STR["post_noscript"]; ?></h2></noscript></div>
 			</div>
 		</article>
 	</div>

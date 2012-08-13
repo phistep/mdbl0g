@@ -18,14 +18,14 @@
 		<span class="description"><?php echo BLOG_DESCRIPTION; ?></span>
 		<ul class="info">
 			<li><form method="get" action="<?php echo BASE_URL; ?>">
-				<input type="search" placeholder="Search..." name="q"<?php if($data['type'] == 'search') echo ' value="'.$_GET['q'].'"';?>>
+				<input type="search" placeholder="<?php echo $STR["search_placeholder"]; ?>" name="q"<?php if($data['type'] == 'search') echo ' value="'.$_GET['q'].'"';?>>
 			</form></li>
-			<li><a href="<?php echo $data['rssLink']; ?>">Subscribe via RSS</a></li>
+			<li><a href="<?php echo $data['rssLink']; ?>"><?php echo $STR["subscribe_link"]; ?></a></li>
 <?php
 	if($data['type'] == 'search')
 		echo '<li class="result">Search Results: <span class="result-count">'.$data['entryCount'].'</span></li>';
 	if($data['maxPages'] > 1){
-		echo '<li class="pages">Page: ';
+		echo '<li class="pages">'.$STR["page"];
 		if($data['previousPageLink'])
 			echo '<span class="pages previous"><a href="'.$data['previousPageLink'].'">&lt;</a></span> ';
 
@@ -36,8 +36,8 @@
 		echo '</li>';
 	}
 ?>
-			<li class="new-post"><a href="<?php echo BASE_URL.'admin/'; ?>">Admin Interface</a></li>
+			<li class="new-post"><a href="<?php echo BASE_URL.'admin/'; ?>"><?php echo $STR["admin_link"]; ?></a></li>
 		</ul>
-		<span class="generator"><a href="http://validator.w3.org/check?uri=referer">HTML5 valid</a> | Powered by <a href="<?php echo POWERED_BY_LINK; ?>"><?php echo POWERED_BY; ?></a></span>
+		<span class="generator"><a href="http://validator.w3.org/check?uri=referer">HTML5 valid</a> | <?php echo $STR["powered_by"]; ?> <a href="<?php echo POWERED_BY_LINK; ?>"><?php echo POWERED_BY; ?></a></span>
 	</aside>
 	<div class="content">
