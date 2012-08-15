@@ -31,5 +31,8 @@ Since the `plugins/*/` directory has to be readable by public for many plugins t
 
 * `html_head-top` - Hooks into the very top of the `<head>` element in `static/templates/header.php` before all other tags. This enables you to load recourses e.g. frameworks that are taken advantage of by other plugins and thus have to be strictly included _before_ the all other resources.
 * `html_head` - Hooks into the `<head>` element in `static/templates/header.php` after all other tags to load assets and overwrite previously loaded files.
-* `html_post-bottom` - Hooks in at the end of the post element in `static/templates/post.php` to add html after the post.
+* `html_post-info` - Hooks into the info section of the post, after the publishing date and the admin links. Use it to add custom information
+* `html_post-bottom` - Hooks in at the end of the post element in `static/templates/post.php` to add html after the post. Add links or other short information here. For very long content use `html_post-bottom-last` so it won't interfere with other plugins right after the post content.
+* `html_post-bottom-last` - Hooks in at the end of the post element in `static/templates/post.php` to add html after the post. In contradiction to`html_post-bottom` it is the very last hook point in the post so its suitable for long content like a comments section.
+* `html_footer-bottom` - Hooks in right before `</body>`. It's purpose is to be home to javascript code that need to parse the whole `<body>`.
 * `html_admin` - Hooks into the admin interface and lets you present options/links/information etc. to the admin. Headline and style should be provided by the theme, just put html to present the actual user interface here.
