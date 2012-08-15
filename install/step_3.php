@@ -82,8 +82,13 @@ Now we can configure your settings. First type in some general information. Then
 	<fieldset>
 		<legend>General</legend>
 		<label for="timezone">Timezone <small>(<a href="ttp://php.net/manual/en/timezones.php" target="_blank">Info</a>)</small>:</label>
-			<input name="timezone" id="timezone" type="text" value="Europe/Berlin"><br>
-		<label for="base_url">URL:<br><small>(<code>http://example.com/</code>)</small></label></td>
+			<select name="timezone" id="timezone">
+				<?php
+				foreach(timezone_identifiers_list() as $timezone)
+					echo "<option value=\"".$timezone."\"".($timezone == "Europe/Berlin" ? " selected" : "").">".$timezone."</option>\n";
+				?>
+			</select><br>
+		<label for="base_url">URL:<br><small>(<code>http://example.com/</code>)</small></label>
 			<input name="base_url" id="base_url" type="text" value="http://">
 	</fieldset>
 	

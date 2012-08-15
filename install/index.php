@@ -37,13 +37,13 @@ else
 		}
 		fieldset{
 			border:1px dotted gray;
-			padding: 10px;
+			padding: 5px;
 			width: 370px;
 			margin-top: 25px;
 		}
 		fieldset label, fieldset input{
 			display: block;
-			width: 145px !important;
+			width: 135px !important;
 			float: left;
 			margin-bottom: 10px;
 		}
@@ -58,6 +58,9 @@ else
 			border: 1px dotted gray;
 			padding: 5px;
 			width:100%;
+		}
+		small{
+			font-size: 80%;
 		}
 	</style>
 	<title>Admin Interface <?php echo BLOG_TITLE; ?></title>
