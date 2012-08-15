@@ -1,6 +1,7 @@
 # mdbl0g
 A simple, file-based, markdown-driven blog engine *with* web interface.
 
+
 ## Features
 * light-weight
 * beautiful, minimalistic, HTML5 responsive default layout
@@ -14,12 +15,15 @@ A simple, file-based, markdown-driven blog engine *with* web interface.
 * opt-out prettified URLs
 * simple and quick installer
 
+
 ## Customize with Plugins
 You can easily add features to your mdbl0g by installing plugins. Just download one and drop it into the `plugins/` directory. There are already some available at the [mdbl0g Plugin GitHub repo](https://github.com/Ps0ke/mdbl0g-plugins).
 
 If you want to develop your own plugins, have a look at the [Plugin API](https://github.com/Ps0ke/mdbl0g/blob/master/plugins/README.md).
 
+
 ## Installation
+
 ### Requirements
 You need at least PHP version `5.1.0` and optionally Apache `mod_rewrite` for Pretty URLs. You don't need any sort of database, because `mdbl0g` is a file based blog engine.
 
@@ -33,8 +37,16 @@ Now point your browser to `http://YOURDOMAIN.com/mdbl0g/install/` or where ever 
 ### Import
 Since the file format is very simple, you can easily export your existing blog to use the posts with mdbl0g. Here is a small script to [import from Wordpress](https://gist.github.com/2553348/).
 
+
+## FAQ
+**Q:** Isn't a file based blog really slow?
+
+**A:** No. Network latency is a way bigger problem for performance as disc I/O. At least if you deal with a (for a blog) reasonable amount of data. I even tested the limits of `mdbl0g`, you can read about it at my (`mdbl0g`-driven) [blog](http://blog.ps0ke.de/2012/08/15/20/27/mdbl0g-benchmark).
+
+
 ## License
-MIT licensed
+MIT licensed.
+
 
 ## Powered by
 * The beautiful ['Average' typeface](http://www.google.com/webfonts/specimen/Average) by Eduardo Tunni (License: SIL Open Font License, 1.1) using Google's awesome [Web Fonts API](http://www.google.com/webfonts/)
