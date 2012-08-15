@@ -1,4 +1,14 @@
-<?php
+<?php 
+//*
+if(file_exists("install") && ( !file_exists("core/include.php") || !file_exists(".htaccess") || !file_exists("./admin/.htaccess") || !file_exists("./admin/.htpasswd"))){
+	header('location:install/index.php?step=0');
+	exit();
+}
+else if(file_exists("install") && file_exists("core/include.php") && file_exists(".htaccess") && file_exists("./admin/.htaccess") && file_exists("./admin/.htpasswd")){
+	header('location:install/index.php?step=4');
+	exit();
+}
+//*/
 $TimeStart = microtime(true);
 $TimeFirst = number_format(microtime(true)-$TimeStart, 5, '.', '');
 function SpeedTest(){

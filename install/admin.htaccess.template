@@ -1,0 +1,9 @@
+AuthName "Admin Interface"
+AuthType Basic
+AuthUserFile %PATH
+Require valid-user
+
+RewriteEngine On
+RewriteBase %REWRITE_BASE
+%PRETTY_URLS RewriteRule ^new/?$ index.php?new [NC,L]
+%PRETTY_URLS RewriteRule ^(delete|edit)/(\d\d\d\d)/(\d\d)/(\d\d)/(\d\d)/(\d\d)/?.*/?$ index.php?$1=$2-$3-$4_$5-$6 [NC,L]

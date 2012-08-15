@@ -12,13 +12,25 @@ A simple, file-based, markdown-driven blog engine *with* web interface.
 * full text search
 * RSS feed
 * opt-out prettified URLs
+* simple and quick installer
 
 ## Customize with Plugins
 You can easily add features to your mdbl0g by installing plugins. Just download one and drop it into the `plugins/` directory. There are already some available at the [mdbl0g Plugin GitHub repo](https://github.com/Ps0ke/mdbl0g-plugins).
 
 If you want to develop your own plugins, have a look at the [Plugin API](https://github.com/Ps0ke/mdbl0g/blob/master/plugins/README.md).
 
-## Import
+## Installation
+### Requirements
+You need at least PHP version `5.1.0` and optionally Apache `mod_rewrite` for Pretty URLs. You don't need any sort of database, because `mdbl0g` is a file based blog engine.
+
+### Installation process
+[Download](https://github.com/Ps0ke/mdbl0g/zipball/master) the `mdbl0g` files from GitHub and upload them to your server. You can also check out the repository with `git` which makes updating easier: 
+
+    git clone git://github.com/Ps0ke/mdbl0g.git
+
+Now point your browser to `http://YOURDOMAIN.com/mdbl0g/install/` or where ever you uploaded the files. The installer will guide you through the simple installation process. When told to do so, delete the `install/` directory and you are ready to go.
+
+### Import
 Since the file format is very simple, you can easily export your existing blog to use the posts with mdbl0g. Here is a small script to [import from Wordpress](https://gist.github.com/2553348/).
 
 ## License

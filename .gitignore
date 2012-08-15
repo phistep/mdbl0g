@@ -1,3 +1,7 @@
 admin/.htpasswd
+admin/.htaccess
+.htaccess
+core/include.php
+install/*.tmp
 *.tmproj
 .DS_Store

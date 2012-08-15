@@ -1,9 +1,0 @@
-AuthName "Admin Access"
-AuthType Basic
-AuthUserFile /Users/Ps0ke/Sites/mdbl0g/mdbl0g/admin/.htpasswd
-Require valid-user
-
-RewriteEngine On
-RewriteBase /~ps0ke/mdbl0g/mdbl0g/admin
-RewriteRule ^new/?$ index.php?new [NC,L]
-RewriteRule ^(delete|edit)/(\d\d\d\d)/(\d\d)/(\d\d)/(\d\d)/(\d\d)/?.*/?$ index.php?$1=$2-$3-$4_$5-$6 [NC,L]
