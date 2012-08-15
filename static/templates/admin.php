@@ -27,6 +27,8 @@
 			<h2><?php echo $STR["admin_plugins"]; ?></h2>
 			<ul>
 		<?php
+			if(count(glob(BASE_PATH."plugins/*", GLOB_ONLYDIR)) == 0)
+				echo $STR["admin_plugins_none"];
 			foreach(glob(BASE_PATH."plugins/*", GLOB_ONLYDIR) as $filename){
 				preg_match("/.+\/(.+)$/", $filename, $result);
 				echo '<li>'.$result[1].'</li>';
@@ -44,6 +46,7 @@
 			}
 		?>
 		</div>
+	</div>
 </body>
 </html>
 

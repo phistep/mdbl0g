@@ -16,6 +16,7 @@ $STR = array(
 	"admin_new_headline" => "Neuer Post",
 	"admin_new_desc" => "Neuen Post schreiben.",
 	"admin_plugins" => "Installierte Plugins",
+	"admin_plugins_none" => "Es sind keine Plugins installiert. Du findest Plugins im <a href=\"".GET_PLUGINS_LINK."\" target=\"_blank\">mdbl0g Plugin Directory</a>",
 	"admin_back" => "Zurück zur Hauptseite",
 	
 	"post_title" => "Titel:",
