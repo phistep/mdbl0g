@@ -23,17 +23,23 @@
 			<a href="<?php echo BASE_URL."admin/".(PRETTY_URLS ? "new/" : "?new") ?>"><?php echo $STR["admin_new_desc"]; ?></a>
 			<hr class="thin">
 
-			<h2><?php echo $STR["admin_plugins"]; ?></h2>
-			<ul>
 		<?php
-			if(count(glob(BASE_PATH."plugins/*", GLOB_ONLYDIR)) == 0)
+			$plugins = glob(BASE_PATH."plugins/*", GLOB_ONLYDIR);
+
+			echo "<h2>".$STR["admin_plugins"]." (".count($plugins).")</h2>";
+
+			if(count($plugins) == 0)
 				echo $STR["admin_plugins_none"];
-			foreach(glob(BASE_PATH."plugins/*", GLOB_ONLYDIR) as $filename){
-				preg_match("/.+\/(.+)$/", $filename, $result);
-				echo '<li>'.$result[1].'</li>';
+			else{
+				echo "<ul>\n";
+				foreach($plugins as $filename){
+					preg_match("/.+\/(.+)$/", $filename, $result);
+					echo '<li>'.$result[1].'</li>';
+				}
+				echo "</ul>\n";
 			}
 		?>
-			</ul>
+
 			<hr class="thin">
 	
 		<?php
