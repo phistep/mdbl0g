@@ -92,6 +92,7 @@ hr.thin{
 
 /* --- New/Edit --- */
 input[type=text], input[type=search], textarea {
+	font-size: 1.2em;
 	font-family: 'Average', serif;
 	border: 1px dotted gray;
 	padding: 5px;
