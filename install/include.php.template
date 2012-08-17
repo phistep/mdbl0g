@@ -1,5 +1,10 @@
 <?php
-error_reporting(0);
+define('DEV_MODE', false);
+if(DEV_MODE)
+	error_reporting(E_ALL ^ E_NOTICE);
+else
+	error_reporting(0);
+
 // Available Timezones: http://php.net/manual/en/timezones.php
 date_default_timezone_set(%TIMEZONE);
 

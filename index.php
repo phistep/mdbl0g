@@ -1,14 +1,4 @@
 <?php 
-/*
-if(file_exists("install") && ( !file_exists("core/include.php") || !file_exists(".htaccess") || !file_exists("./admin/.htaccess") || !file_exists("./admin/.htpasswd"))){
-	header('location:install/index.php?step=0');
-	exit();
-}
-else if(file_exists("install") && file_exists("core/include.php") && file_exists(".htaccess") && file_exists("./admin/.htaccess") && file_exists("./admin/.htpasswd")){
-	header('location:install/index.php?step=4');
-	exit();
-}
-*/
 $TimeStart = microtime(true);
 $TimeFirst = number_format(microtime(true)-$TimeStart, 5, '.', '');
 function SpeedTest(){
@@ -21,7 +11,18 @@ SpeedTest();
 
 
 if(!defined('BASE_PATH')) define('BASE_PATH', './');
-include(BASE_PATH.'core/include.php');
+@include(BASE_PATH.'core/include.php'); // @: If no include.php is found (not installed yet), no error will be printed and the headers can be set.
+if(!DEV_MODE){
+	// Redirects users to the installer if the installation has not been completed
+	if(file_exists("install") && ( !file_exists("core/include.php") || !file_exists(".htaccess") || !file_exists("./admin/.htaccess") || !file_exists("./admin/.htpasswd"))){
+		header('location:install/index.php?step=0');
+		exit();
+	}
+	else if(file_exists("install") && file_exists("core/include.php") && file_exists(".htaccess") && file_exists("./admin/.htaccess") && file_exists("./admin/.htpasswd")){
+		header('location:install/index.php?step=4');
+		exit();
+	}
+}
 
 if(preg_match('/^\d\d\d\d-\d\d-\d\d_\d\d-\d\d$/', $_GET['p'])){
 	$type = "post";
@@ -100,5 +101,6 @@ else
 
 include(BASE_PATH.'static/templates/footer.php');
 
-echo "<!-- Execution Time: ".SpeedTest()."s -->";
+if(DEV_MODE)
+	echo "<!-- Execution Time: ".SpeedTest()."s -->";
 ?>
