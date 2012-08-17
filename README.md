@@ -13,6 +13,7 @@ A simple, file-based, markdown-driven blog engine *with* web interface.
 * full text search
 * RSS feed
 * opt-out prettified URLs
+* English and German localization
 * simple and quick installer
 
 
@@ -25,7 +26,9 @@ If you want to develop your own plugins, have a look at the [Plugin API](https:/
 ## Installation
 
 ### Requirements
-You need at least PHP version `5.1.0` and optionally Apache `mod_rewrite` for Pretty URLs. You don't need any sort of database, because `mdbl0g` is a file based blog engine.
+You need at least PHP version `5.1.0`, Apache `mod_auth_basic` for HTTP Basic Auth (Admin Interface) and optionally Apache `mod_rewrite` for Pretty URLs. You don't need any sort of database, because `mdbl0g` is a file based blog engine. Or any other web server that uses Apache configuration files and implements `mod_auth_basic` and `mod_rewrite`.
+
+If you have no clue what all this means -- it will probably work ;) Just give it a shot!
 
 ### Installation process
 [Download](https://github.com/Ps0ke/mdbl0g/zipball/master) the `mdbl0g` files from GitHub and upload them to your server. You can also check out the repository with `git` which makes updating easier: 
