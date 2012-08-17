@@ -69,6 +69,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['settings'])){
 		
 		if(!is_writable('../posts'))
 			@chmod("../posts", 0755);
+			
+		if(!is_writable('../plugins'))
+			@chmod("../plugins", 0755);
 		
 		header('location:index.php?step=4');
 		exit();
