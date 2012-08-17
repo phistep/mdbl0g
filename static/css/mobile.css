@@ -21,8 +21,9 @@ h1, h2, h3, h4, h5, h6 {
 /* --- Infobox --- */
 .infobox{
 	border-bottom: 1px dotted gray;
-	padding-bottom: 50px;
+	padding-bottom: 10px;
 	margin-bottom: 50px;
+	text-align: center;
 }
 .infobox h1{
 	font-size:2.5em;
@@ -47,7 +48,7 @@ h1, h2, h3, h4, h5, h6 {
 h1.post-title{
 	margin-bottom:0px;
 }
-.post-date,.post-admin,.generator{
+.post-date,.post-admin,footer{
 	color:gray;
 }
 .post-date,.post-admin{
@@ -85,8 +86,13 @@ hr:last-child{
 hr.thin{
 	margin: 20px 0px 10px 0px;
 }
-.generator{
+footer{
 	font-size: 0.8em;
+	border:none;
+	border-top: 1px dotted gray;
+	margin-top: 50px;
+	padding-top: 25px;
+	text-align:center;
 }
 
 

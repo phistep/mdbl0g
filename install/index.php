@@ -73,13 +73,13 @@ else
 			<div class="progressbar outer">
 				<div class="progressbar inner"><?php if($step) echo $step."/".$numsteps; ?></div>
 			</div>
-			<span class="generator">Powered by <a href="<?php echo POWERED_BY_LINK; ?>"><?php echo POWERED_BY; ?></a></span>
 		</aside>
 		<div class="content">
 <?php
 include("step_".$step.".php");
 ?>
 		</div>
+		<footer>Powered by <a href="<?php echo POWERED_BY_LINK; ?>"><?php echo POWERED_BY; ?></a></footer>
 	</div>
 </body>
 </html>

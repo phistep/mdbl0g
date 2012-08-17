@@ -64,7 +64,7 @@ h1, h2, h3, h4, h5, h6 {
 h1.post-title{
 	margin-bottom:0px;
 }
-.post-date,.post-admin,.generator{
+.post-date,.post-admin,footer{
 	color:gray;
 }
 .post-date,.post-admin{
@@ -101,10 +101,13 @@ hr:last-child{
 hr.thin{
 	margin: 20px 0px 10px 0px;
 }
-.generator{
+footer{
 	font-size: 0.8em;
 	position:fixed;
 	bottom:5px;
+	width:190px;
+	padding-left:10px;
+	margin-left:410px;
 }
 
 

@@ -16,7 +16,6 @@
 			<ul class="info">
 				<li class="new-post"><a href="<?php echo BASE_URL; ?>"><?php echo $STR["admin_back"]; ?></a></li>
 			</ul>
-			<span class="generator"><a href="http://validator.w3.org/check?uri=referer">HTML5 valid</a> | Powered by <a href="<?php echo POWERED_BY_LINK; ?>"><?php echo POWERED_BY; ?></a></span>
 		</aside>
 		<div class="content">
 			<h2><?php echo $STR["admin_new_headline"]; ?></h2>
@@ -51,6 +50,11 @@
 			}
 		?>
 		</div>
+		<footer>
+			<a href="http://validator.w3.org/check?uri=referer">HTML5 valid</a>
+			<span class="seperator"> | </span>
+			<?php echo $STR["powered_by"]; ?> <a href="<?php echo POWERED_BY_LINK; ?>"><?php echo POWERED_BY; ?></a>
+		</footer>
 	</div>
 </body>
 </html>

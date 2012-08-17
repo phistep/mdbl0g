@@ -38,6 +38,5 @@
 ?>
 			<li class="new-post"><a href="<?php echo BASE_URL.'admin/'; ?>"><?php echo $STR["admin_link"]; ?></a></li>
 		</ul>
-		<span class="generator"><a href="http://validator.w3.org/check?uri=referer">HTML5 valid</a> | <?php echo $STR["powered_by"]; ?> <a href="<?php echo POWERED_BY_LINK; ?>"><?php echo POWERED_BY; ?></a></span>
 	</aside>
 	<div class="content">
