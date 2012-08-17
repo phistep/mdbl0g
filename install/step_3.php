@@ -90,13 +90,17 @@ Now we can configure your settings. First type in some general information. Then
 			</select><br>
 		<label for="base_url">URL:<br><small>(<code>http://example.com/</code>)</small></label>
 			<input name="base_url" id="base_url" type="text" value="http://">
+			<script type="text/javascript">
+				// gets current URL and cuts off the "install/?step=3" part and assigns it to the base_url field
+				document.getElementById("base_url").value = /(.*\/)(install\/\?step=3)/.exec(document.URL)[1];
+			</script>
 	</fieldset>
 	
 	<fieldset>
 		<legend>Blog</legend>
 		<label for="posts_per_page">Posts per page:</label>
 			<input name="posts_per_page" id="posts_per_page" type="number" value="5"><br>
-		<label for="pretty_urls">Pretty URLs*:</label></td>
+		<label for="pretty_urls">Pretty URLs*:</label>
 			<input name="pretty_urls" id="pretty_urls" type="checkbox" checked><br>
 		<label for="date_format">Date format:</label>
 			<select name="date_format" id="date_format" onchange="javascript:
