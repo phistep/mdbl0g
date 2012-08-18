@@ -39,7 +39,9 @@ h1, h2, h3, h4, h5, h6 {
 	width:190px;
 	padding-left:10px;
 	margin-left:410px;
+	margin-top:-10px;
 	border-left: 1px dotted gray;
+	background:white;
 }
 .infobox h1{
 	font-size:2.5em;
