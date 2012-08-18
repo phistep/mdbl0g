@@ -15,11 +15,16 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
 		<atom:link href="<?php echo PRETTY_URLS ? BASE_URL."/rss/" : BASE_URL."rss.php"; ?>" rel="self" type="application/rss+xml" />
 <?php
 $files = list_posts(BASE_PATH.'posts');
+
+foreach(glob(BASE_PATH."plugins/*/php_rss-channel.php") as $filename){include $filename;}
+
 foreach($files as $filename){
 	$post = post_details(BASE_PATH."posts/".$filename);
 	$html = to_html($post['content']);
 	$link = BASE_URL.(PRETTY_URLS ? $post['prettyid'] : "?p=".$post['id']);
 	$rfcdate = date('r', $post['timestamp']);
+	
+	foreach(glob(BASE_PATH."plugins/*/php_rss-item-before-output.php") as $filename){include $filename;}
 ?>
 
 		<item>
@@ -30,6 +35,7 @@ foreach($files as $filename){
 			]]></description>
 			<guid><?php echo $link; ?></guid>
 			<pubDate><?php echo $rfcdate; ?></pubDate>
+			<?php foreach(glob(BASE_PATH."plugins/*/php_rss-item-output.php") as $filename){include $filename;} ?>
 		</item>
 <?php
 }

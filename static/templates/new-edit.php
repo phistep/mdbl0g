@@ -18,6 +18,7 @@
 				<?php echo $STR["post_title"]; ?><br><input type="text" name="title" size="50" onKeyUp="document.getElementById('preview-title').innerHTML = this.value;"<?php if($type == 'edit') echo ' value="'.$post['title'].'"';?>><br><br>
 				<?php echo $STR["post_content"]; ?><br>
 				<textarea name="content" id="inputPane" rows="20" cols="60"><?php if($type == 'edit') echo $post['content'];?></textarea><br><br>
+				<?php foreach(glob(BASE_PATH."plugins/*/html_admin-new-edit-after-textarea.php") as $filename){include $filename;} ?>
 				<?php if($type == 'edit') echo '<input type="hidden" name="id" value="'.$post['id'].'">'; ?>
 				<input type="hidden" name="type" value="<?php echo $type; ?>">
 				<input type="submit" name="action" value="<?php echo $STR["post_submit"]; ?>" class="button">

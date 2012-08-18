@@ -58,7 +58,11 @@ if('POST' == $_SERVER['REQUEST_METHOD']){
 			if(!unlink($filename))
 				alert($errormessage, "error");
 
-		if(file_put_contents($filename, $_POST['title']."\n".$_POST['content']))
+		$filecontent = $_POST['title']."\n".$_POST['content'];
+		
+		foreach(glob(BASE_PATH."plugins/*/php_admin-before-write-post.php") as $pluginfilename){include $pluginfilename;}
+
+		if(file_put_contents($filename, $filecontent))
 			alert($successmessage, "success");
 		else
 			alert($errormessage, "error");

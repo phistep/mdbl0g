@@ -35,15 +35,17 @@ function post_details($filename){
 	foreach($trimmedcontent as $line)
 		$post['content'] .= $line;
 
+	foreach(glob(BASE_PATH."plugins/*/php_functions-post_details.php") as $filename){include $filename;}
+
 	return $post;
 }
 
 function to_html($markdown){
-	foreach(glob(BASE_PATH."plugins/*/php_mdconverter-html.php") as $filename){include $filename;}
+	foreach(glob(BASE_PATH."plugins/*/php_functions-to_html-md.php") as $filename){include $filename;}
 	
 	$html = Markdown($markdown);
 	
-	foreach(glob(BASE_PATH."plugins/*/php_mdconverter-html.php") as $filename){include $filename;}
+	foreach(glob(BASE_PATH."plugins/*/php_functions-to_html-html.php") as $filename){include $filename;}
 
 	return $html;
 }

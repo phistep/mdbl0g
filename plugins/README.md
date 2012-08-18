@@ -25,10 +25,15 @@ Since the `plugins/*/` directory has to be readable by public for many plugins t
 ## List of available hook points
 * `php_main-post-before-include` - Hooks into the `index.php` before the `static/templates/post.php` gets included, so it enables you to modify the `$data[]` of the post before it gets rendered.
 * `php_main-post-before-set-data` - Hooks into the `index.php` before the `$data][]` array is filled, markdown text is rendered, etc.
-* `php_mdconverter-md` - Hooks into the `static/functions/functions.php to_html()` function, before the conversion, `$markdown` is available for modification.
-* `php_mdconverter-html` - Hooks into the `static/functions/functions.php to_html()` function, after the conversion, `$html` is available for modification.
+* `php_functions-to_html-md` - Hooks into the `core/functions/functions.php to_html()` function, before the conversion, `$markdown` is available for modification.
+* `php_functions-to_html-html` - Hooks into the `core/functions/functions.php to_html()` function, after the conversion, `$html` is available for modification.
+* `php_functions-post_details` - Hooks in at the end of the `core/functions/functions.php post_details()` function and lets you modify the $post[] data. It is suitable to modify the file format and add extensions to it.
+* `php_rss-channel.php` - Hooks into the `<channel>` element of the RSS feed and lets you modify the meta data of the feed. The list of files -- `$files` -- is also visible and can be modified.
+* `php_rss-item-before-output` - Hooks into the `foreach` loop of every `<item>` and lets you manipulate the available variables.
+* `php_rss-item-output.php` - Hooks into the output part of each `<item>` to display more meta data. Please stay standards-compliant.
 * `php_admin-request-get` - Hooks into the `admin/index.php` in the `if('GET' == $_SERVER['REQUEST_METHOD'])` before all other `if`s. When using `php_admin*` hooks please read the section about security!
 * `php_admin-request-get` - Hooks into the `admin/index.php` in the `if('POST' == $_SERVER['REQUEST_METHOD'])` before all other `if`s. When using `php_admin*` hooks please read the section about security!
+* `php_admin-before-write-post` - Hooks into the `admin.index.php` and lets you modify the `$filecontent` directly before it gets written. `$_POST[]` is available. You can use this to to modify the file format and add extensions to it. Do checks for form fields to be non-empty if they are required (not recommended!) and throw suitable `alert();`s with predefined strings (so they are localized) like `$STR["alert_new_error_fields"]`.
 
 * `html_head-top` - Hooks into the very top of the `<head>` element in `static/templates/header.php` before all other tags. This enables you to load recourses e.g. frameworks that are taken advantage of by other plugins and thus have to be strictly included _before_ the all other resources.
 * `html_head` - Hooks into the `<head>` element in `static/templates/header.php` after all other tags to load assets and overwrite previously loaded files.
@@ -37,3 +42,4 @@ Since the `plugins/*/` directory has to be readable by public for many plugins t
 * `html_post-bottom-last` - Hooks in at the end of the post element in `static/templates/post.php` to add html after the post. In contradiction to`html_post-bottom` it is the very last hook point in the post so its suitable for long content like a comments section.
 * `html_footer-bottom` - Hooks in right before `</body>`. It's purpose is to be home to javascript code that need to parse the whole `<body>`.
 * `html_admin` - Hooks into the admin interface and lets you present options/links/information etc. to the admin. Headline and style should be provided by the theme, just put html to present the actual user interface here.
+* `html_admin-new-edit-after-textarea` - Hooks in the input form of the `static/templates/new-edit.php` and lets you add custom form fields after the `content` field. 
