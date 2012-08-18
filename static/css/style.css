@@ -120,6 +120,9 @@ input[type=text], input[type=search], textarea {
 	padding: 5px;
 	width:100%;
 }
+input:focus{
+	outline: none;
+}
 .content.newpost {
 	margin: 0;
 	padding: 0;
