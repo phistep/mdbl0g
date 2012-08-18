@@ -84,6 +84,8 @@ include(BASE_PATH.'static/templates/header.php');
 if($files)
 	foreach($files as $filename){
 		if($post = post_details(BASE_PATH."posts/".$filename)){
+			foreach(glob(BASE_PATH."plugins/*/php_main-post-before-set-data.php") as $filename){include $filename;}
+			
 			$data['contentHtml'] = to_html($post['content']);
 			$data['postTitle'] = htmlspecialchars($post['title']);
 			$data['postLink'] = BASE_URL.(PRETTY_URLS ? $post['prettyid'] : "?p=".$post['id']);
