@@ -2,6 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Average);
 body{
 	font-family: 'Average', serif;
+	font-size:14px;
 }
 ::selection{
 	background: black;
