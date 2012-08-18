@@ -37,6 +37,8 @@
 	}
 ?>
 			<li class="new-post"><a href="<?php echo BASE_URL.'admin/'; ?>"><?php echo $STR["admin_link"]; ?></a></li>
+			<li><?php foreach(glob(BASE_PATH."plugins/*/html_aside-list.php") as $filename){include $filename;} ?></li>
 		</ul>
+		<?php foreach(glob(BASE_PATH."plugins/*/html_aside.php") as $filename){include $filename;} ?>
 	</aside>
 	<div class="content">
