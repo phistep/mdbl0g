@@ -95,7 +95,7 @@ Now we can configure your settings. First type in some general information. Then
 			<input name="base_url" id="base_url" type="text" value="http://">
 			<script type="text/javascript">
 				// gets current URL and cuts off the "install/?step=3" part and assigns it to the base_url field
-				document.getElementById("base_url").value = /(.*\/)(install\/\?step=3)/.exec(document.URL)[1];
+				document.getElementById("base_url").value = /(.*\/)(install\/(index\.php)?\?step=3)/.exec(document.URL)[1];
 			</script>
 	</fieldset>
 	
