@@ -12,7 +12,9 @@ SpeedTest();
 
 if(!defined('BASE_PATH')) define('BASE_PATH', './');
 @include(BASE_PATH.'core/include.php'); // @: If no include.php is found (not installed yet), no error will be printed and the headers can be set.
-if(!DEV_MODE && !defined(DEV_MODE)){
+if(!defined(DEV_MODE))
+	define("DEV_MODE", false);
+if(!DEV_MODE){
 	// Redirects users to the installer if the installation has not been completed
 	if(file_exists("install") && ( !file_exists("core/include.php") || !file_exists(".htaccess") || !file_exists("./admin/.htaccess") || !file_exists("./admin/.htpasswd"))){
 		header('location:install/index.php?step=0');
