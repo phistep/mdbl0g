@@ -70,9 +70,11 @@ else
 		<aside class="infobox">
 			<h1><?php echo POWERED_BY; ?></h1>
 			<span class="description">Installer</span>
+			<?php if($step > 0){ ?>
 			<div class="progressbar outer">
 				<div class="progressbar inner"><?php if($step) echo $step."/".$numsteps; ?></div>
 			</div>
+			<?php } ?>
 		</aside>
 		<div class="content">
 <?php
