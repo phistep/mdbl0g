@@ -35,14 +35,19 @@ if('POST' == $_SERVER['REQUEST_METHOD']){
 	
 	if($_POST['type'] == "new" || $_POST['type'] == "edit"){
 		if($_POST['type'] == "new"){
-			$filename = BASE_PATH."posts/".date("Y-m-d_H-i").".md";
+			$now = date("Y-m-d_H-i");
+			$filename = BASE_PATH."posts/".$now.".md";
 			$successmessage = $STR["alert_new_success"];
 			$errormessage = $STR["alert_new_error"];
+			$successredirect = BASE_URL."?p=".$now;
+			$errorredirect = BASE_URL."admin/".(PRETTY_URLS ? "new/" : "?new");
 		}
 		else{ // edit
 			$filename = BASE_PATH."posts/".$_POST['id'].".md";
 			$successmessage = $STR["alert_edit_success"];
 			$errormessage = $STR["alert_edit_error"];
+			$successredirect = BASE_URL."?p=".$_POST['id'];
+			$errorredirect = BASE_URL."admin/?edit=".$_POST['id'];
 		}
 		
 		if(!($_POST['title'] && $_POST['content'])){
@@ -56,16 +61,16 @@ if('POST' == $_SERVER['REQUEST_METHOD']){
 		 // in case we don't have write access on the file
 		if(file_exists($filename))
 			if(!unlink($filename))
-				alert($errormessage, "error");
+				alert($errormessage, "error", $errorredirect);
 
 		$filecontent = $_POST['title']."\n".$_POST['content'];
 		
 		foreach(glob(BASE_PATH."plugins/*/php_admin-before-write-post.php") as $pluginfilename){include $pluginfilename;}
 
 		if(file_put_contents($filename, $filecontent))
-			alert($successmessage, "success");
+			alert($successmessage, "success", $successredirect);
 		else
-			alert($errormessage, "error");
+			alert($errormessage, "error", $errorredirect);
 	}
 }
 ?>
