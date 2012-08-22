@@ -23,17 +23,26 @@ Since the `plugins/*/` directory has to be readable by public for many plugins t
 ```
 
 ## List of available hook points
+* `php_main-after-type-selection` - Hooks into `index.php` after the conditionals which select the `$type` of the query and the `$files` that get rendered. This is the place to go if you want to mod these.
+* `php_main-before-include-header` - Hooks into `index.php` after the `$data` has been set and before the `static/templates/header.php` is included.
 * `php_main-post-before-include` - Hooks into the `index.php` before the `static/templates/post.php` gets included, so it enables you to modify the `$data[]` of the post before it gets rendered.
-* `php_main-post-before-set-data` - Hooks into the `index.php` before the `$data][]` array is filled, markdown text is rendered, etc.
+* `php_main-bottom-dev_mode` - Hooks the `if(DEV_MODE){}` conditional at the end of `index.php` so you can display debug information. Consider wrapping it up in html comments (`<!-- foobar -->`).
+* `php_main-post-before-set-data` - Hooks into the `index.php` before the `$data[]` array is filled, markdown text is rendered, etc.
 * `php_functions-to_html-md` - Hooks into the `core/functions/functions.php to_html()` function, before the conversion, `$markdown` is available for modification.
+* `php_functions-list_posts` - Hooks into the `core/functions/functions.php list_posts()` function, before any code execution. This enables you to write a custom function and return the array, before any of the original code is executed.
 * `php_functions-to_html-html` - Hooks into the `core/functions/functions.php to_html()` function, after the conversion, `$html` is available for modification.
 * `php_functions-post_details` - Hooks in at the end of the `core/functions/functions.php post_details()` function and lets you modify the $post[] data. It is suitable to modify the file format and add extensions to it.
+* `php_functions-search_posts` - Hooks into the `core/functions/functions.php search_posts()` function after the search code has been executed. `$dir` and `$query` have not been altered though and you can use them again to implement your own search implementation or alter the normal `$results` array.
+* `php_functions-to_to_url` - Hooks into the `core/functions/functions.php to_url()` function, lets you implement an advanced "string-to-ascii"-function.
+* `php_functions-alert` - Hooks into the `core/functions/functions.php alert()` function, before any other code execution. Use this carefully, it's a substantial mechanism for the admin user experience.
+* `php_indclude-top` - Hooks into the `core/include.php` on the top, so you can overwrite *any* constants! Please leave `POWERED_BY`, `POWERED_BY_LINK` and `GET_PLUGINS_LINK` unchanged. Be vary careful what you change, it could ruin the user experience!
 * `php_rss-channel.php` - Hooks into the `<channel>` element of the RSS feed and lets you modify the meta data of the feed. The list of files -- `$files` -- is also visible and can be modified.
 * `php_rss-item-before-output` - Hooks into the `foreach` loop of every `<item>` and lets you manipulate the available variables.
 * `php_rss-item-output.php` - Hooks into the output part of each `<item>` to display more meta data. Please stay standards-compliant.
 * `php_admin-request-get` - Hooks into the `admin/index.php` in the `if('GET' == $_SERVER['REQUEST_METHOD'])` before all other `if`s. When using `php_admin*` hooks please read the section about security!
 * `php_admin-request-get` - Hooks into the `admin/index.php` in the `if('POST' == $_SERVER['REQUEST_METHOD'])` before all other `if`s. When using `php_admin*` hooks please read the section about security!
-* `php_admin-before-write-post` - Hooks into the `admin.index.php` and lets you modify the `$filecontent` directly before it gets written. `$_POST[]` is available. You can use this to to modify the file format and add extensions to it. Do checks for form fields to be non-empty if they are required (not recommended!) and throw suitable `alert();`s with predefined strings (so they are localized) like `$STR["alert_new_error_fields"]`.
+* `php_admin-before-write-post` - Hooks into the `admin.index.php` and lets you modify the `$filecontent` directly before it gets written. `$_POST[]` is available. You can use this to to modify the file format and add extensions to it. Do checks for form fields to be non-empty if they are required (not recommended!) and throw suitable `alert();`s with predefined strings (so they are localized) like `$STR["alert_new_error_fields"]`. When using `php_admin*` hooks please read the section about security!
+
 
 * `html_head-top` - Hooks into the very top of the `<head>` element in `static/templates/header.php` before all other tags. This enables you to load recourses e.g. frameworks that are taken advantage of by other plugins and thus have to be strictly included _before_ the all other resources.
 * `html_head` - Hooks into the `<head>` element in `static/templates/header.php` after all other tags to load assets and overwrite previously loaded files.

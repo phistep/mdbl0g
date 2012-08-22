@@ -40,6 +40,8 @@ else{
 	$files = list_posts('posts');
 }
 
+foreach(glob(BASE_PATH."plugins/*/php_main-after-type-selection.php") as $pluginfilename){include $pluginfilename;}
+
 $entryCount = count($files);
 $maxPages = ceil($entryCount / POSTS_PER_PAGE);
 $page = 1;
@@ -81,12 +83,14 @@ $data['type'] = $type;
 $data['entryCount'] = $entryCount;
 $data['newPostLink'] = BASE_URL."admin/".(PRETTY_URLS ? "new/" : "?new");
 
+foreach(glob(BASE_PATH."plugins/*/php_main-before-include-header.php") as $pluginfilename){include $pluginfilename;}
+
 include(BASE_PATH.'static/templates/header.php');
 
 if($files)
 	foreach($files as $filename){
 		if($post = post_details(BASE_PATH."posts/".$filename)){
-			foreach(glob(BASE_PATH."plugins/*/php_main-post-before-set-data.php") as $filename){include $filename;}
+			foreach(glob(BASE_PATH."plugins/*/php_main-post-before-set-data.php") as $pluginfilename){include $pluginfilename;}
 			
 			$data['contentHtml'] = to_html($post['content']);
 			$data['postTitle'] = htmlspecialchars($post['title']);
@@ -95,7 +99,7 @@ if($files)
 			$data['deleteLink'] = BASE_URL."admin/".(PRETTY_URLS ? "delete/".$post['prettyid'] : "?delete=".$post['id']);
 			$data['time'] = date(DATE_FORMAT, $post['timestamp']);
 			
-			foreach(glob(BASE_PATH."plugins/*/php_main-post-before-include.php") as $filename){include $filename;}
+			foreach(glob(BASE_PATH."plugins/*/php_main-post-before-include.php") as $pluginfilename){include $pluginfilename;}
 			
 			include(BASE_PATH.'static/templates/post.php');
 		}
@@ -105,6 +109,8 @@ else
 
 include(BASE_PATH.'static/templates/footer.php');
 
-if(DEV_MODE)
+if(DEV_MODE){
 	echo "<!-- Execution Time: ".SpeedTest()."s -->";
+	foreach(glob(BASE_PATH."plugins/*/php_main-bottom-dev_mode.php") as $pluginfilename){include $pluginfilename;}
+}
 ?>

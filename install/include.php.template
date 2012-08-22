@@ -1,4 +1,7 @@
 <?php
+
+foreach(glob(BASE_PATH."plugins/*/php_indclude-top.php") as $pluginfilename){include $pluginfilename;}
+
 define('DEV_MODE', false);
 if(DEV_MODE)
 	error_reporting(E_ALL ^ E_NOTICE);

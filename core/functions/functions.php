@@ -1,5 +1,8 @@
 <?php
 function list_posts($dir){
+	
+	foreach(glob(BASE_PATH."plugins/*/php_functions-list_posts.php") as $pluginfilename){include $pluginfilename;}
+	
 	$files = array();
 	if ($handle = opendir($dir)) {
 	    while (false !== ($entry = readdir($handle))) {
@@ -67,10 +70,16 @@ function search_posts($dir, $query){
 			$results[$i] = $filename;
 		}
 	}
+	
+	foreach(glob(BASE_PATH."plugins/*/php_functions-search_posts.php") as $pluginfilename){include $pluginfilename;}
+	
 	return $results;
 }
 
 function to_url($string){
+	
+	foreach(glob(BASE_PATH."plugins/*/php_functions-to_url.php") as $filename){include $filename;}
+	
 	$string = strtolower($string);
 	$string = preg_replace('/\s+/','-', $string);
 	$string = preg_replace('/[^A-Za-z0-9\-]+/','', $string);
@@ -78,6 +87,7 @@ function to_url($string){
 }
 
 function alert($alert_message, $alert_type, $alert_return_url = BASE_URL, $alert_delay = DEFAULT_ALERT_DELAY){
+	foreach(glob(BASE_PATH."plugins/*/php_functions-alert.php") as $filename){include $filename;}
 	include(BASE_PATH.'/static/templates/alert.php');
 	exit();
 }
