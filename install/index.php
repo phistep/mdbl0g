@@ -83,7 +83,7 @@ if(isset($_GET['error'])){
 		<div class="alert error">
 			<h3>Please fill out all fields correctly!</h3>
 		</div>
-<?
+<?php
 }
 include("step_".$step.".php");
 ?>
