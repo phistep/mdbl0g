@@ -85,7 +85,7 @@ $DATA['newPostLink'] = BASE_URL."admin/".(PRETTY_URLS ? "new/" : "?new");
 
 foreach(glob(BASE_PATH."plugins/*/php_main-before-include-header.php") as $pluginfilename){include $pluginfilename;}
 
-include(BASE_PATH.'static/templates/header.php');
+include(BASE_PATH.'theme/templates/header.php');
 
 if($files)
 	foreach($files as $filename){
@@ -101,13 +101,13 @@ if($files)
 			
 			foreach(glob(BASE_PATH."plugins/*/php_main-post-before-include.php") as $pluginfilename){include $pluginfilename;}
 			
-			include(BASE_PATH.'static/templates/post.php');
+			include(BASE_PATH.'theme/templates/post.php');
 		}
 	}
 else
-	include(BASE_PATH.'static/templates/no-results.php');
+	include(BASE_PATH.'theme/templates/no-results.php');
 
-include(BASE_PATH.'static/templates/footer.php');
+include(BASE_PATH.'theme/templates/footer.php');
 
 if(DEV_MODE){
 	echo "<!-- Execution Time: ".SpeedTest()."s -->";

@@ -18,8 +18,8 @@ else
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title><?php echo POWERED_BY; ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<link rel="stylesheet" type="text/css" href="../static/css/style.css" media="all and (min-width: 840px)">
-	<link rel="stylesheet" type="text/css" href="../static/css/mobile.css" media="only screen and (max-width: 839px)">
+	<link rel="stylesheet" type="text/css" href="../theme/css/style.css" media="all and (min-width: 840px)">
+	<link rel="stylesheet" type="text/css" href="../theme/css/mobile.css" media="only screen and (max-width: 839px)">
 	<link href='http://fonts.googleapis.com/css?family=Average' rel='stylesheet' type='text/css'>
 	<style>
 		.progressbar.outer{

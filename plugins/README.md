@@ -49,8 +49,8 @@ I would like it to keep all plugins in the [mdbl0g Plugin Directory](https://git
 
 ## List of available hook points
 * `php_main-after-type-selection` - Hooks into `index.php` after the conditionals which select the `$type` of the query and the `$files` that get rendered. This is the place to go if you want to mod these.
-* `php_main-before-include-header` - Hooks into `index.php` after the `$DATA` has been set and before the `static/templates/header.php` is included.
-* `php_main-post-before-include` - Hooks into the `index.php` before the `static/templates/post.php` gets included, so it enables you to modify the `$DATA[]` of the post before it gets rendered.
+* `php_main-before-include-header` - Hooks into `index.php` after the `$DATA` has been set and before the `theme/templates/header.php` is included.
+* `php_main-post-before-include` - Hooks into the `index.php` before the `theme/templates/post.php` gets included, so it enables you to modify the `$DATA[]` of the post before it gets rendered.
 * `php_main-bottom-dev_mode` - Hooks the `if(DEV_MODE){}` conditional at the end of `index.php` so you can display debug information. Consider wrapping it up in html comments (`<!-- foobar -->`).
 * `php_main-post-before-set-data` - Hooks into the `index.php` before the `$DATA[]` array is filled, markdown text is rendered, etc.
 * `php_functions-to_html-md` - Hooks into the `core/functions/functions.php to_html()` function, before the conversion, `$markdown` is available for modification.
@@ -69,13 +69,13 @@ I would like it to keep all plugins in the [mdbl0g Plugin Directory](https://git
 * `php_admin-before-write-post` - Hooks into the `admin.index.php` and lets you modify the `$filecontent` directly before it gets written. `$_POST[]` is available. You can use this to to modify the file format and add extensions to it. Do checks for form fields to be non-empty if they are required (not recommended!) and throw suitable `alert();`s with predefined strings (so they are localized) like `$STR["alert_new_error_fields"]`. When using `php_admin*` hooks please read the section about security!
 
 
-* `html_head-top` - Hooks into the very top of the `<head>` element in `static/templates/header.php` before all other tags. This enables you to load recourses e.g. frameworks that are taken advantage of by other plugins and thus have to be strictly included _before_ the all other resources.
-* `html_head` - Hooks into the `<head>` element in `static/templates/header.php` after all other tags to load assets and overwrite previously loaded files.
+* `html_head-top` - Hooks into the very top of the `<head>` element in `theme/templates/header.php` before all other tags. This enables you to load recourses e.g. frameworks that are taken advantage of by other plugins and thus have to be strictly included _before_ the all other resources.
+* `html_head` - Hooks into the `<head>` element in `theme/templates/header.php` after all other tags to load assets and overwrite previously loaded files.
 * `html_aside` - Hooks in the end of the `<aside>` element. Used to display, widgets etc.
 * `html_aside-list` - Hooks into the `<aside>` but in a list element. May not be supported by all themes. The corresponding `<li> </li>` are already wrapped around.
 * `html_post-info` - Hooks into the info section of the post, after the publishing date and the admin links. Use it to add custom information
-* `html_post-bottom` - Hooks in at the end of the post element in `static/templates/post.php` to add html after the post. Add links or other short information here. For very long content use `html_post-bottom-last` so it won't interfere with other plugins right after the post content.
-* `html_post-bottom-last` - Hooks in at the end of the post element in `static/templates/post.php` to add html after the post. In contradiction to`html_post-bottom` it is the very last hook point in the post so its suitable for long content like a comments section.
+* `html_post-bottom` - Hooks in at the end of the post element in `theme/templates/post.php` to add html after the post. Add links or other short information here. For very long content use `html_post-bottom-last` so it won't interfere with other plugins right after the post content.
+* `html_post-bottom-last` - Hooks in at the end of the post element in `theme/templates/post.php` to add html after the post. In contradiction to`html_post-bottom` it is the very last hook point in the post so its suitable for long content like a comments section.
 * `html_footer-bottom` - Hooks in right before `</body>`. It's purpose is to be home to javascript code that need to parse the whole `<body>`.
 * `html_admin` - Hooks into the admin interface and lets you present options/links/information etc. to the admin. Headline and style should be provided by the theme, just put html to present the actual user interface here.
-* `html_admin-new-edit-after-textarea` - Hooks in the input form of the `static/templates/new-edit.php` and lets you add custom form fields after the `content` field. 
+* `html_admin-new-edit-after-textarea` - Hooks in the input form of the `theme/templates/new-edit.php` and lets you add custom form fields after the `content` field. 

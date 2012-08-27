@@ -7,12 +7,12 @@ if('GET' == $_SERVER['REQUEST_METHOD']){
 	
 	if(isset($_GET['new'])){
 		$type = 'new';
-		require(BASE_PATH.'static/templates/new-edit.php');
+		require(BASE_PATH.'theme/templates/new-edit.php');
 	}
 	else if(preg_match('/^\d\d\d\d-\d\d-\d\d_\d\d-\d\d$/', $_GET['edit'])){
 		$type = 'edit';
 		$post = post_details(BASE_PATH."posts/".$_GET['edit'].".md");
-		require(BASE_PATH.'/static/templates/new-edit.php');
+		require(BASE_PATH.'/theme/templates/new-edit.php');
 	}
 	else if(preg_match('/^\d\d\d\d-\d\d-\d\d_\d\d-\d\d$/', $_GET['delete'])){
 		if(isset($_GET['really'])){
@@ -24,10 +24,10 @@ if('GET' == $_SERVER['REQUEST_METHOD']){
 			}
 		}
 		else
-			require(BASE_PATH.'static/templates/really.php');
+			require(BASE_PATH.'theme/templates/really.php');
 	}
 	else{
-	    require(BASE_PATH.'static/templates/admin.php');
+	    require(BASE_PATH.'theme/templates/admin.php');
 	}
 }
 if('POST' == $_SERVER['REQUEST_METHOD']){

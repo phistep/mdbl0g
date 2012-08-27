@@ -7,8 +7,8 @@
 		<link rel="alternate" type="application/rss+xml" title="<?php echo BLOG_TITLE; ?> Feed" href="<?php echo $DATA['rssLink']; ?>">
 		<title><?php echo BLOG_TITLE; ?></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>static/css/style.css" media="all and (min-width: 610px)">
-		<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>static/css/mobile.css" media="only screen and (max-width: 609px)">
+		<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>theme/css/style.css" media="all and (min-width: 610px)">
+		<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>theme/css/mobile.css" media="only screen and (max-width: 609px)">
 		<?php foreach(glob(BASE_PATH."plugins/*/html_head.php") as $filename){include $filename;} ?>
 	</head>
 <body>

@@ -86,7 +86,7 @@ function to_url($string){
 
 function alert($alert_message, $alert_type, $alert_return_url = BASE_URL, $alert_delay = DEFAULT_ALERT_DELAY){
 	foreach(glob(BASE_PATH."plugins/*/php_functions-alert.php") as $filename){include $filename;}
-	include(BASE_PATH.'/static/templates/alert.php');
+	include(BASE_PATH.'/theme/templates/alert.php');
 	exit();
 }
 ?>

@@ -4,12 +4,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title><?php echo BLOG_TITLE; ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>static/css/style.css" media="all and (min-width: 840px)">
-	<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL ?>static/css/mobile.css" media="only screen and (max-width: 839px)">
+	<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>theme/css/style.css" media="all and (min-width: 840px)">
+	<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL ?>theme/css/mobile.css" media="only screen and (max-width: 839px)">
 	<link href='http://fonts.googleapis.com/css?family=Average' rel='stylesheet' type='text/css'>
-	<script type="text/javascript" src="<?php echo BASE_URL; ?>static/js/showdown.js"></script>
-	<script type="text/javascript" src="<?php echo BASE_URL; ?>static/js/showdown-gui.js"></script>
-	<script type="text/javascript" src="<?php echo BASE_URL; ?>static/js/php-date-format.js"></script>
+	<script type="text/javascript" src="<?php echo BASE_URL; ?>theme/js/showdown.js"></script>
+	<script type="text/javascript" src="<?php echo BASE_URL; ?>theme/js/showdown-gui.js"></script>
+	<script type="text/javascript" src="<?php echo BASE_URL; ?>theme/js/php-date-format.js"></script>
 </head>
 <body>
 <div class="newpost-wrapper">
