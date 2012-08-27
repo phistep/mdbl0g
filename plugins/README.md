@@ -38,10 +38,10 @@ I would like it to keep all plugins in the [mdbl0g Plugin Directory](https://git
 
 ## List of available hook points
 * `php_main-after-type-selection` - Hooks into `index.php` after the conditionals which select the `$type` of the query and the `$files` that get rendered. This is the place to go if you want to mod these.
-* `php_main-before-include-header` - Hooks into `index.php` after the `$data` has been set and before the `static/templates/header.php` is included.
-* `php_main-post-before-include` - Hooks into the `index.php` before the `static/templates/post.php` gets included, so it enables you to modify the `$data[]` of the post before it gets rendered.
+* `php_main-before-include-header` - Hooks into `index.php` after the `$DATA` has been set and before the `static/templates/header.php` is included.
+* `php_main-post-before-include` - Hooks into the `index.php` before the `static/templates/post.php` gets included, so it enables you to modify the `$DATA[]` of the post before it gets rendered.
 * `php_main-bottom-dev_mode` - Hooks the `if(DEV_MODE){}` conditional at the end of `index.php` so you can display debug information. Consider wrapping it up in html comments (`<!-- foobar -->`).
-* `php_main-post-before-set-data` - Hooks into the `index.php` before the `$data[]` array is filled, markdown text is rendered, etc.
+* `php_main-post-before-set-data` - Hooks into the `index.php` before the `$DATA[]` array is filled, markdown text is rendered, etc.
 * `php_functions-to_html-md` - Hooks into the `core/functions/functions.php to_html()` function, before the conversion, `$markdown` is available for modification.
 * `php_functions-list_posts` - Hooks into the `core/functions/functions.php list_posts()` function, before any code execution. This enables you to write a custom function and return the array, before any of the original code is executed.
 * `php_functions-to_html-html` - Hooks into the `core/functions/functions.php to_html()` function, after the conversion, `$html` is available for modification.

@@ -52,36 +52,36 @@ if(isset($_GET['s']))
 	
 if(is_array($files)) $files = array_slice($files, (($page - 1) * POSTS_PER_PAGE), POSTS_PER_PAGE);
 
-$data = array();
-$data['rssLink'] = BASE_URL."rss".(PRETTY_URLS ? "/" : ".php");
-$data['currentPage'] = $page;
+$DATA = array();
+$DATA['rssLink'] = BASE_URL."rss".(PRETTY_URLS ? "/" : ".php");
+$DATA['currentPage'] = $page;
 
 if($page < $maxPages){
 	if($type == 'search'){
-		$data['nextPageLink'] = BASE_URL.(PRETTY_URLS ? "search/".($page+1)."/".$_GET['q'] : "?s=".($page+1)."&q=".$_GET['q'] );
+		$DATA['nextPageLink'] = BASE_URL.(PRETTY_URLS ? "search/".($page+1)."/".$_GET['q'] : "?s=".($page+1)."&q=".$_GET['q'] );
 	}
 	else{
-		$data['nextPageLink'] = BASE_URL.(PRETTY_URLS ? "page/".($page+1) : "?s=".($page+1) );
+		$DATA['nextPageLink'] = BASE_URL.(PRETTY_URLS ? "page/".($page+1) : "?s=".($page+1) );
 	}
 }
 else
-	$data['nextPageLink'] = false;
+	$DATA['nextPageLink'] = false;
 	
 if($page > 1){
 	if($type == 'search'){
-		$data['previousPageLink'] = BASE_URL.(PRETTY_URLS ? "search/".($page-1)."/".$_GET['q'] : "?s=".($page-1)."&q=".$_GET['q'] );
+		$DATA['previousPageLink'] = BASE_URL.(PRETTY_URLS ? "search/".($page-1)."/".$_GET['q'] : "?s=".($page-1)."&q=".$_GET['q'] );
 	}
 	else{
-		$data['previousPageLink'] = BASE_URL.(PRETTY_URLS ? "page/".($page-1) : "?s=".($page-1) );
+		$DATA['previousPageLink'] = BASE_URL.(PRETTY_URLS ? "page/".($page-1) : "?s=".($page-1) );
 	}
 }
 else
-	$data['previousPageLink'] = false;
+	$DATA['previousPageLink'] = false;
 
-$data['maxPages'] = $maxPages;
-$data['type'] = $type;
-$data['entryCount'] = $entryCount;
-$data['newPostLink'] = BASE_URL."admin/".(PRETTY_URLS ? "new/" : "?new");
+$DATA['maxPages'] = $maxPages;
+$DATA['type'] = $type;
+$DATA['entryCount'] = $entryCount;
+$DATA['newPostLink'] = BASE_URL."admin/".(PRETTY_URLS ? "new/" : "?new");
 
 foreach(glob(BASE_PATH."plugins/*/php_main-before-include-header.php") as $pluginfilename){include $pluginfilename;}
 
@@ -92,12 +92,12 @@ if($files)
 		if($post = post_details(BASE_PATH."posts/".$filename)){
 			foreach(glob(BASE_PATH."plugins/*/php_main-post-before-set-data.php") as $pluginfilename){include $pluginfilename;}
 			
-			$data['contentHtml'] = to_html($post['content']);
-			$data['postTitle'] = htmlspecialchars($post['title']);
-			$data['postLink'] = BASE_URL.(PRETTY_URLS ? $post['prettyid'] : "?p=".$post['id']);
-			$data['editLink'] = BASE_URL."admin/".(PRETTY_URLS ? "edit/".$post['prettyid'] : "?edit=".$post['id']);
-			$data['deleteLink'] = BASE_URL."admin/".(PRETTY_URLS ? "delete/".$post['prettyid'] : "?delete=".$post['id']);
-			$data['time'] = date(DATE_FORMAT, $post['timestamp']);
+			$DATA['contentHtml'] = to_html($post['content']);
+			$DATA['postTitle'] = htmlspecialchars($post['title']);
+			$DATA['postLink'] = BASE_URL.(PRETTY_URLS ? $post['prettyid'] : "?p=".$post['id']);
+			$DATA['editLink'] = BASE_URL."admin/".(PRETTY_URLS ? "edit/".$post['prettyid'] : "?edit=".$post['id']);
+			$DATA['deleteLink'] = BASE_URL."admin/".(PRETTY_URLS ? "delete/".$post['prettyid'] : "?delete=".$post['id']);
+			$DATA['time'] = date(DATE_FORMAT, $post['timestamp']);
 			
 			foreach(glob(BASE_PATH."plugins/*/php_main-post-before-include.php") as $pluginfilename){include $pluginfilename;}
 			

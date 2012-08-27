@@ -4,7 +4,7 @@
 		<?php foreach(glob(BASE_PATH."plugins/*/html_head-top.php") as $filename){include $filename;} ?>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta name="generator" content="<?php echo POWERED_BY ?>">
-		<link rel="alternate" type="application/rss+xml" title="<?php echo BLOG_TITLE; ?> Feed" href="<?php echo $data['rssLink']; ?>">
+		<link rel="alternate" type="application/rss+xml" title="<?php echo BLOG_TITLE; ?> Feed" href="<?php echo $DATA['rssLink']; ?>">
 		<title><?php echo BLOG_TITLE; ?></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>static/css/style.css" media="all and (min-width: 610px)">
@@ -18,21 +18,21 @@
 		<span class="description"><?php echo BLOG_DESCRIPTION; ?></span>
 		<ul class="info">
 			<li><form method="get" action="<?php echo BASE_URL; ?>">
-				<input type="search" placeholder="<?php echo $STR["search_placeholder"]; ?>" name="q"<?php if($data['type'] == 'search') echo ' value="'.$_GET['q'].'"';?>>
+				<input type="search" placeholder="<?php echo $STR["search_placeholder"]; ?>" name="q"<?php if($DATA['type'] == 'search') echo ' value="'.$_GET['q'].'"';?>>
 			</form></li>
-			<li><a href="<?php echo $data['rssLink']; ?>"><?php echo $STR["subscribe_link"]; ?></a></li>
+			<li><a href="<?php echo $DATA['rssLink']; ?>"><?php echo $STR["subscribe_link"]; ?></a></li>
 <?php
-	if($data['type'] == 'search')
-		echo '<li class="result">Search Results: <span class="result-count">'.$data['entryCount'].'</span></li>';
-	if($data['maxPages'] > 1){
+	if($DATA['type'] == 'search')
+		echo '<li class="result">Search Results: <span class="result-count">'.$DATA['entryCount'].'</span></li>';
+	if($DATA['maxPages'] > 1){
 		echo '<li class="pages">'.$STR["page"];
-		if($data['previousPageLink'])
-			echo '<span class="pages previous"><a href="'.$data['previousPageLink'].'">&lt;</a></span> ';
+		if($DATA['previousPageLink'])
+			echo '<span class="pages previous"><a href="'.$DATA['previousPageLink'].'">&lt;</a></span> ';
 
-		echo '<span class="pages current">'.$data['currentPage'].'/'.$data['maxPages'].'</span>';
+		echo '<span class="pages current">'.$DATA['currentPage'].'/'.$DATA['maxPages'].'</span>';
 
-		if($data['nextPageLink'])
-			echo ' <span class="pages next"><a href="'.$data['nextPageLink'].'">&gt;</a></span>';
+		if($DATA['nextPageLink'])
+			echo ' <span class="pages next"><a href="'.$DATA['nextPageLink'].'">&gt;</a></span>';
 		echo '</li>';
 	}
 ?>
