@@ -34,7 +34,9 @@ function post_details($filename){
 	$post['prettyid'] = date('Y/m/d/H/i/', $post['timestamp']).to_url($post['title']);
 	
 	$trimmedcontent = array_slice($content, 1);
-	$post['content'] = implode("\n", $trimmedcontent);
+	$post['content'] = '';
+	foreach($trimmedcontent as $line)	  	
+		$post['content'] .= $line;
 
 	foreach(glob(BASE_PATH."plugins/*/php_functions-post_details.php") as $filename){include $filename;}
 
