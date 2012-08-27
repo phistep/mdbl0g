@@ -78,6 +78,13 @@ else
 		</aside>
 		<div class="content">
 <?php
+if(isset($_GET['error'])){
+?>
+		<div class="alert error">
+			<h3>Please fill out all fields correctly!</h3>
+		</div>
+<?
+}
 include("step_".$step.".php");
 ?>
 		</div>

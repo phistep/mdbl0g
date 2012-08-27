@@ -1,7 +1,7 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['set-title'])){
 	if($_POST['title'] == "" || $_POST['description'] == ""){
-		echo "<h3>Please fill out all fields correctly!</h3>";
+		header('location:index.php?step=2&error');
 		exit();
 	}
 	else{

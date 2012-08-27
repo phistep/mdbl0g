@@ -14,12 +14,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['settings'])){
 		|| $_POST['date_format'] == ""
 		|| ($_POST['date_format'] == "custom" && $_POST['date_format_custom'] == "")
 		){
-		echo "<h3>Please fill out all fields correctly!</h3>";
-		exit();
+			header('location:index.php?step=3&error');
+			exit();
 	}
 	else{
 		if(!is_writable('../core'))
-			chmod("../core", 0775) or die("error set permissions .");
+			chmod("../core", 0775) or die("error set permissions ../core");
 
 		$include = file_get_contents("include.php.tmp") or die("error read include template");
 		
@@ -36,7 +36,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['settings'])){
 		
 		
 		if(!is_writable('../'))
-			chmod("../", 0775) or die("error set permissions .");
+			chmod("../", 0775) or die("error set permissions ../");
 			
 		$rewritepath = explode("/", parse_url($_POST['base_url'], PHP_URL_PATH));
 		array_pop($rewritepath);
@@ -53,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['settings'])){
 		
 		
 		if(!is_writable('../admin'))
-			chmod(".", 0775) or die("error set permissions .");
+			chmod(".", 0775) or die("error set permissions ../admin");
 		
 		$pwdpath = explode("/", __DIR__);
 		array_pop($pwdpath);

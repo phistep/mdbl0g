@@ -1,7 +1,7 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['create-acc'])){
 	if($_POST['username'] == "" || $_POST['password'] == "" || $_POST['password-repeat'] == "" || $_POST['password'] != $_POST['password-repeat']){
-		echo "<h3>Please fill out all fields correctly!</h3>";
+		header('location:index.php?step=1&error');
 		exit();
 	}
 	else{
