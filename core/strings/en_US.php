@@ -1,4 +1,5 @@
 <?php
+@include(BASE_PATH."core/include.php");
 $STR = array(
 	"search_placeholder" => "Search...",
 	"subscribe_link" => "Subscribe via RSS",
