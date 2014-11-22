@@ -7,4 +7,4 @@ if (version_compare(PHP_VERSION, MIN_VER, '<')){
 ?>
 Thank you for trying <?php echo POWERED_BY; ?>! I hope you'll enjoy it. The installation requires you to fill in some information but is completed in <?php echo $numsteps; ?> short steps.
 
-<br><br><a href="?step=1">Get me sarted!</a>
+<br><br><a href="?step=1">Get me started!</a>
